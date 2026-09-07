@@ -14,15 +14,6 @@
     <!-- Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     
-    <!-- Gemini AI API -->
-    <script type="importmap">
-        {
-            "imports": {
-                "@google/generative-ai": "https://esm.run/@google/generative-ai"
-            }
-        }
-    </script>
-    
     <style>
         :root {
             --primary: #6366f1;
@@ -55,11 +46,7 @@
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', sans-serif;
@@ -80,9 +67,7 @@
             overflow: hidden;
         }
         
-        .auth-container.active {
-            display: flex;
-        }
+        .auth-container.active { display: flex; }
         
         .auth-container::before {
             content: '';
@@ -134,9 +119,7 @@
             margin-top: 5px;
         }
         
-        .form-group {
-            margin-bottom: 20px;
-        }
+        .form-group { margin-bottom: 20px; }
         
         .form-group label {
             display: block;
@@ -211,9 +194,7 @@
             overflow: hidden;
         }
         
-        .app-container.active {
-            display: flex;
-        }
+        .app-container.active { display: flex; }
         
         .sidebar {
             width: var(--sidebar-width);
@@ -256,9 +237,7 @@
             padding: 20px 0;
         }
         
-        .nav-section {
-            margin-bottom: 30px;
-        }
+        .nav-section { margin-bottom: 30px; }
         
         .nav-section-title {
             padding: 0 20px;
@@ -307,10 +286,7 @@
             font-size: 18px;
         }
         
-        .nav-item span {
-            font-size: 14px;
-            font-weight: 500;
-        }
+        .nav-item span { font-size: 14px; font-weight: 500; }
         
         .main-content {
             flex: 1;
@@ -361,10 +337,7 @@
             gap: 20px;
         }
         
-        .language-selector {
-            display: flex;
-            gap: 5px;
-        }
+        .language-selector { display: flex; gap: 5px; }
         
         .lang-btn {
             padding: 6px 12px;
@@ -411,9 +384,7 @@
             padding: 30px;
         }
         
-        .page {
-            display: none;
-        }
+        .page { display: none; }
         
         .page.active {
             display: block;
@@ -589,9 +560,7 @@
             border-bottom: 1px solid var(--gray-200);
         }
         
-        .data-table tr:hover {
-            background: var(--gray-50);
-        }
+        .data-table tr:hover { background: var(--gray-50); }
         
         .status-badge {
             padding: 4px 12px;
@@ -616,9 +585,7 @@
             color: var(--danger);
         }
         
-        .form-container {
-            max-width: 600px;
-        }
+        .form-container { max-width: 600px; }
         
         .form-grid {
             display: grid;
@@ -721,9 +688,7 @@
             font-size: 14px;
         }
         
-        .footer-item i {
-            color: var(--gold);
-        }
+        .footer-item i { color: var(--gold); }
         
         .toast-container {
             position: fixed;
@@ -745,17 +710,9 @@
             min-width: 300px;
         }
         
-        .toast.success {
-            border-left: 4px solid var(--success);
-        }
-        
-        .toast.error {
-            border-left: 4px solid var(--danger);
-        }
-        
-        .toast.warning {
-            border-left: 4px solid var(--warning);
-        }
+        .toast.success { border-left: 4px solid var(--success); }
+        .toast.error { border-left: 4px solid var(--danger); }
+        .toast.warning { border-left: 4px solid var(--warning); }
         
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
@@ -785,52 +742,20 @@
         }
         
         @media (max-width: 1024px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .menu-toggle { display: block; }
         }
         
         @media (max-width: 768px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .metric-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .content-area {
-                padding: 15px;
-            }
-            
-            .header {
-                padding: 0 15px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-info {
-                flex-direction: column;
-            }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .metric-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .content-area { padding: 15px; }
+            .header { padding: 0 15px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-info { flex-direction: column; }
         }
     </style>
 </head>
@@ -964,7 +889,7 @@
                     <div class="nav-section-title">Yapay Zeka</div>
                     <a class="nav-item" onclick="showPage('ai-cfo')">
                         <i class="fas fa-robot"></i>
-                        <span>AI CFO (Gemini)</span>
+                        <span>AI CFO</span>
                     </a>
                     <a class="nav-item" onclick="showPage('ai-reports')">
                         <i class="fas fa-file-alt"></i>
@@ -1017,12 +942,14 @@
             </header>
 
             <div class="content-area">
-                <!-- Dashboard -->
+                <!-- ============ DASHBOARD - ALL MODULES SUMMARY ============ -->
                 <div class="page active" id="dashboard-page">
                     <div class="dashboard-grid">
+                        <!-- Genel Durum -->
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Genel Durum</h3>
+                                <p class="card-subtitle">Tüm modüllerin özeti</p>
                             </div>
                             <div class="metric-grid">
                                 <div class="metric-card">
@@ -1035,284 +962,769 @@
                                 </div>
                                 <div class="metric-card">
                                     <div class="score-circle excellent">84</div>
-                                    <div class="metric-label">Longevity Skoru</div>
+                                    <div class="metric-label">Longevity</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="score-circle warning">78</div>
+                                    <div class="metric-label">Üretkenlik</div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Finansal Özet -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Finansal Özet</h3>
+                                <p class="card-subtitle">Aylık durum</p>
+                            </div>
+                            <div class="metric-grid">
+                                <div class="metric-card">
+                                    <div class="metric-value">₺1.250.000</div>
+                                    <div class="metric-label">Net Değer</div>
+                                    <span class="metric-change positive">+12.5%</span>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺85.000</div>
+                                    <div class="metric-label">Aylık Gelir</div>
+                                    <span class="metric-change positive">+8.2%</span>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺45.000</div>
+                                    <div class="metric-label">Aylık Gider</div>
+                                    <span class="metric-change negative">-3.1%</span>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">47%</div>
+                                    <div class="metric-label">Tasarruf Oranı</div>
+                                    <span class="metric-change positive">+2.4%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- İşletme Özeti -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">İşletme Özeti</h3>
+                                <p class="card-subtitle">Aylık performans</p>
+                            </div>
+                            <div class="metric-grid">
+                                <div class="metric-card">
+                                    <div class="metric-value">₺450.000</div>
+                                    <div class="metric-label">Aylık Gelir</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺280.000</div>
+                                    <div class="metric-label">Brüt Kar</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺150.000</div>
+                                    <div class="metric-label">EBITDA</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺95.000</div>
+                                    <div class="metric-label">Nakit Akışı</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CRM Özeti -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">CRM Özeti</h3>
+                                <p class="card-subtitle">Müşteri ilişkileri</p>
+                            </div>
+                            <div class="metric-grid">
+                                <div class="metric-card">
+                                    <div class="metric-value">1.250</div>
+                                    <div class="metric-label">Toplam Müşteri</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">85</div>
+                                    <div class="metric-label">Yeni Müşteri</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">4.2%</div>
+                                    <div class="metric-label">Dönüşüm</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺1.850</div>
+                                    <div class="metric-label">Ort. Sipariş</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hizmetler Özeti -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Hizmetler</h3>
+                                <p class="card-subtitle">Uzmanlar ve Marketplace</p>
+                            </div>
+                            <div class="metric-grid">
+                                <div class="metric-card">
+                                    <div class="metric-value">12</div>
+                                    <div class="metric-label">Uzman</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">12</div>
+                                    <div class="metric-label">Ürün/Hizmet</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">4</div>
+                                    <div class="metric-label">Danışmanlık</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">4</div>
+                                    <div class="metric-label">Koçluk</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Önerileri -->
                         <div class="ai-insights">
                             <div class="card-header">
-                                <h3 class="card-title" style="color: white;">Gemini AI Önerileri</h3>
+                                <h3 class="card-title" style="color: white;">AI Önerileri</h3>
                             </div>
-                            <div id="geminiInsights">
-                                <div class="insight-item">
-                                    <i class="fas fa-robot"></i>
-                                    <strong>Gemini AI analiz ediyor...</strong>
-                                </div>
+                            <div class="insight-item">
+                                <i class="fas fa-exclamation-triangle" style="color: var(--warning);"></i>
+                                <strong>Giderleriniz bu ay %8 arttı.</strong>
+                                <p style="font-size: 14px; opacity: 0.9;">Pazarlama giderleri %28 yükseldi.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FIRE Page -->
-                <div class="page" id="fire-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">FIRE Hesaplayıcı</h2>
-                        <p style="color: var(--gray-500);">Finansal Bağımsızlık ve Erken Emeklilik</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">FIRE Parametreleri</h3>
-                            <div class="form-container" style="margin-top: 20px;">
-                                <div class="form-grid">
-                                    <div class="form-group">
-                                        <label>Mevcut Yaş</label>
-                                        <input type="number" class="form-input" id="fireAge" value="30">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Emeklilik Yaşı</label>
-                                        <input type="number" class="form-input" id="fireRetirementAge" value="55">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Yıllık Gelir (₺)</label>
-                                        <input type="number" class="form-input" id="fireIncome" value="1020000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Yıllık Gider (₺)</label>
-                                        <input type="number" class="form-input" id="fireExpenses" value="540000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Mevcut Net Değer (₺)</label>
-                                        <input type="number" class="form-input" id="fireNetWorth" value="1250000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Yatırım Getirisi (%)</label>
-                                        <input type="number" class="form-input" id="fireReturn" value="7">
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" style="margin-top: 20px;" onclick="calculateFIRE()">
-                                    <i class="fas fa-calculator"></i> Hesapla
-                                </button>
+                            <div class="insight-item">
+                                <i class="fas fa-lightbulb" style="color: var(--gold-light);"></i>
+                                <strong>FIRE hedefinize ulaşmak için</strong>
+                                <p style="font-size: 14px; opacity: 0.9;">Aylık yatırımınızı ₺5.000 artırmanız durumunda 3 yıl erken emekli olabilirsiniz.</p>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 class="card-title">FIRE Sonuçları</h3>
-                            <div id="fireResults" style="margin-top: 20px;">
-                                <div class="metric-grid">
-                                    <div class="metric-card">
-                                        <div class="metric-value" id="fireNumberResult">₺0</div>
-                                        <div class="metric-label">FIRE Numarası</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" id="fireYearResult">-</div>
-                                        <div class="metric-label">FIRE Yılı</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" id="fireDurationResult">-</div>
-                                        <div class="metric-label">Kalan Süre</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 class="card-title">FIRE Simülasyonu</h3>
-                            <div class="chart-container">
-                                <canvas id="fireChart"></canvas>
+                            <div class="insight-item">
+                                <i class="fas fa-chart-line" style="color: var(--success);"></i>
+                                <strong>İşletme nakit akışı pozitif.</strong>
+                                <p style="font-size: 14px; opacity: 0.9;">Son 3 aydır nakit akışınız %15 büyüme gösteriyor.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Longevity Page -->
-                <div class="page" id="longevity-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">Longevity & Sağlık</h2>
-                        <p style="color: var(--gray-500);">60 Biyobelirteç ile kapsamlı analiz</p>
+                <!-- ============ FINANCE - DETAILED ============ -->
+                <div class="page" id="finance-page">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div>
+                            <h2 style="font-size: 28px; font-weight: 700;">Finans Yönetimi</h2>
+                            <p style="color: var(--gray-500);">Kapsamlı finansal durum analizi</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="openModal('addTransactionModal')" style="width: auto;">
+                            <i class="fas fa-plus"></i> Yeni İşlem
+                        </button>
                     </div>
 
                     <div class="dashboard-grid">
+                        <!-- Gelir Detayı -->
                         <div class="card">
-                            <h3 class="card-title">Yaş Analizi</h3>
-                            <div class="metric-grid" style="margin-top: 20px;">
-                                <div class="metric-card">
-                                    <div class="metric-value">32</div>
-                                    <div class="metric-label">Biyolojik Yaş</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">28</div>
-                                    <div class="metric-label">Epigenetik Yaş</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">30</div>
-                                    <div class="metric-label">Metabolik Yaş</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">30</div>
-                                    <div class="metric-label">Kronolojik Yaş</div>
-                                </div>
-                            </div>
-                            <div class="ai-insights" style="margin-top: 20px;">
-                                <h4 style="color: white; margin-bottom: 10px;">Biyolojik Yaş Nasıl Ölçülür?</h4>
-                                <p style="color: rgba(255,255,255,0.9); font-size: 14px;">
-                                    Biyolojik yaş, kronolojik yaşınızdan farklı olarak vücudunuzun gerçek durumunu gösterir. 
-                                    Epigenetik saat (DNA metilasyonu), telomer uzunluğu, inflamasyon belirteçleri, 
-                                    metabolik parametreler ve organ fonksiyon testleri ile hesaplanır.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 class="card-title">60 Biyobelirteç Paneli</h3>
-                            <div style="overflow-x: auto; margin-top: 20px; max-height: 500px; overflow-y: auto;">
+                            <h3 class="card-title">Gelir Detayı</h3>
+                            <div style="margin-top: 20px;">
                                 <table class="data-table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Biyobelirteç</th>
-                                            <th>Değer</th>
-                                            <th>Referans</th>
+                                            <th>Kaynak</th>
+                                            <th>Aylık</th>
+                                            <th>Yıllık</th>
                                             <th>Durum</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="biomarkersTable"></tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Maaş</td>
+                                            <td>₺60.000</td>
+                                            <td>₺720.000</td>
+                                            <td><span class="status-badge status-active">Aktif</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Serbest Çalışma</td>
+                                            <td>₺15.000</td>
+                                            <td>₺180.000</td>
+                                            <td><span class="status-badge status-active">Aktif</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kira Geliri</td>
+                                            <td>₺8.000</td>
+                                            <td>₺96.000</td>
+                                            <td><span class="status-badge status-active">Aktif</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Temettü</td>
+                                            <td>₺2.000</td>
+                                            <td>₺24.000</td>
+                                            <td><span class="status-badge status-pending">Değişken</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Gider Detayı -->
+                        <div class="card">
+                            <h3 class="card-title">Gider Detayı</h3>
+                            <div style="margin-top: 20px;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Kategori</th>
+                                            <th>Aylık</th>
+                                            <th>Yıllık</th>
+                                            <th>Oran</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Konut</td>
+                                            <td>₺15.000</td>
+                                            <td>₺180.000</td>
+                                            <td>33%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gıda</td>
+                                            <td>₺5.000</td>
+                                            <td>₺60.000</td>
+                                            <td>11%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ulaşım</td>
+                                            <td>₺3.000</td>
+                                            <td>₺36.000</td>
+                                            <td>7%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sağlık</td>
+                                            <td>₺2.000</td>
+                                            <td>₺24.000</td>
+                                            <td>4%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eğitim</td>
+                                            <td>₺3.000</td>
+                                            <td>₺36.000</td>
+                                            <td>7%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sigorta</td>
+                                            <td>₺2.500</td>
+                                            <td>₺30.000</td>
+                                            <td>6%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eğlence</td>
+                                            <td>₺2.000</td>
+                                            <td>₺24.000</td>
+                                            <td>4%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Diğer</td>
+                                            <td>₺12.500</td>
+                                            <td>₺150.000</td>
+                                            <td>28%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Varlıklar -->
+                        <div class="card">
+                            <h3 class="card-title">Varlıklar</h3>
+                            <div style="margin-top: 20px;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Varlık</th>
+                                            <th>Değer</th>
+                                            <th>Getiri</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Nakit</td>
+                                            <td>₺150.000</td>
+                                            <td>%0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Banka</td>
+                                            <td>₺350.000</td>
+                                            <td>%2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Altın</td>
+                                            <td>₺200.000</td>
+                                            <td>%12.3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hisse Senedi</td>
+                                            <td>₺350.000</td>
+                                            <td>%15.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gayrimenkul</td>
+                                            <td>₺500.000</td>
+                                            <td>%10.1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kripto</td>
+                                            <td>₺100.000</td>
+                                            <td>%25.4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Borçlar -->
+                        <div class="card">
+                            <h3 class="card-title">Borçlar</h3>
+                            <div style="margin-top: 20px;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Borç</th>
+                                            <th>Tutar</th>
+                                            <th>Faiz</th>
+                                            <th>Kalan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mortgage</td>
+                                            <td>₺800.000</td>
+                                            <td>%1.2</td>
+                                            <td>15 yıl</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Araç Kredisi</td>
+                                            <td>₺250.000</td>
+                                            <td>%2.5</td>
+                                            <td>3 yıl</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kredi Kartı</td>
+                                            <td>₺15.000</td>
+                                            <td>%3.5</td>
+                                            <td>1 ay</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Budget Page -->
-                <div class="page" id="budget-page">
+                <!-- ============ BUSINESS - DETAILED ============ -->
+                <div class="page" id="business-page">
                     <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">Bütçe Yönetimi</h2>
-                        <p style="color: var(--gray-500);">8 Gelir-Gider Kalemi</p>
+                        <h2 style="font-size: 28px; font-weight: 700;">İşletme Yönetimi</h2>
+                        <p style="color: var(--gray-500);">Kapsamlı işletme performans analizi</p>
                     </div>
 
                     <div class="dashboard-grid">
+                        <!-- Finansal Performans -->
                         <div class="card">
-                            <h3 class="card-title">Gelir Kalemleri</h3>
-                            <div id="incomeItems" style="margin-top: 20px;"></div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Gider Kalemleri</h3>
-                            <div id="expenseItems" style="margin-top: 20px;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Portfolio Page -->
-                <div class="page" id="portfolio-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">Yatırım Portföyü</h2>
-                        <p style="color: var(--gray-500);">10 Varlık Sınıfı</p>
-                    </div>
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">Portföy Dağılımı</h3>
-                            <div class="chart-container">
-                                <canvas id="portfolioChart"></canvas>
+                            <h3 class="card-title">Finansal Performans</h3>
+                            <div class="metric-grid" style="margin-top: 20px;">
+                                <div class="metric-card">
+                                    <div class="metric-value">₺450.000</div>
+                                    <div class="metric-label">Aylık Gelir</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺170.000</div>
+                                    <div class="metric-label">COGS</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺280.000</div>
+                                    <div class="metric-label">Brüt Kar</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺150.000</div>
+                                    <div class="metric-label">EBITDA</div>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- KPI'lar -->
                         <div class="card">
-                            <h3 class="card-title">Varlıklar</h3>
-                            <div id="portfolioAssets" style="margin-top: 20px;"></div>
+                            <h3 class="card-title">Temel KPI'lar</h3>
+                            <div style="margin-top: 20px;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>KPI</th>
+                                            <th>Değer</th>
+                                            <th>Hedef</th>
+                                            <th>Durum</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Brüt Marj</td>
+                                            <td>62%</td>
+                                            <td>60%</td>
+                                            <td><span class="status-badge status-active">İyi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Net Marj</td>
+                                            <td>33%</td>
+                                            <td>30%</td>
+                                            <td><span class="status-badge status-active">İyi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cari Oran</td>
+                                            <td>2.4</td>
+                                            <td>2.0</td>
+                                            <td><span class="status-badge status-active">İyi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Borç/Özkaynak</td>
+                                            <td>0.8</td>
+                                            <td>1.0</td>
+                                            <td><span class="status-badge status-active">İyi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stok Devir</td>
+                                            <td>6.5</td>
+                                            <td>8.0</td>
+                                            <td><span class="status-badge status-pending">Geliştir</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alacak Devir</td>
+                                            <td>4.2</td>
+                                            <td>5.0</td>
+                                            <td><span class="status-badge status-pending">Geliştir</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Müşteri Analizi -->
+                        <div class="card">
+                            <h3 class="card-title">Müşteri Analizi</h3>
+                            <div class="metric-grid" style="margin-top: 20px;">
+                                <div class="metric-card">
+                                    <div class="metric-value">1.250</div>
+                                    <div class="metric-label">Toplam Müşteri</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">85</div>
+                                    <div class="metric-label">Yeni Müşteri (Ay)</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">₺1.850</div>
+                                    <div class="metric-label">Ortalama Sipariş</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">4.2%</div>
+                                    <div class="metric-label">Dönüşüm Oranı</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Satış Kanalları -->
+                        <div class="card">
+                            <h3 class="card-title">Satış Kanalları</h3>
+                            <div style="margin-top: 20px;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Kanal</th>
+                                            <th>Satış</th>
+                                            <th>Pay</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Online Mağaza</td>
+                                            <td>₺180.000</td>
+                                            <td>40%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fiziksel Mağaza</td>
+                                            <td>₺135.000</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>B2B Satış</td>
+                                            <td>₺90.000</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Marketplace</td>
+                                            <td>₺45.000</td>
+                                            <td>10%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Operasyonel Metrikler -->
+                        <div class="card">
+                            <h3 class="card-title">Operasyonel Metrikler</h3>
+                            <div style="margin-top: 20px;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Metrik</th>
+                                            <th>Değer</th>
+                                            <th>Sektör</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Çalışan Başına Gelir</td>
+                                            <td>₺45.000</td>
+                                            <td>₺38.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Müşteri Memnuniyeti</td>
+                                            <td>85%</td>
+                                            <td>80%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stok Devir Hızı</td>
+                                            <td>6.5x</td>
+                                            <td>8.0x</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sipariş Karşılama</td>
+                                            <td>95%</td>
+                                            <td>92%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Marketplace Page -->
+                <!-- ============ CRM - DETAILED ============ -->
+                <div class="page" id="crm-page">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div>
+                            <h2 style="font-size: 28px; font-weight: 700;">CRM - Müşteri İlişkileri</h2>
+                            <p style="color: var(--gray-500);">Kapsamlı müşteri yönetimi</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="openModal('addCustomerModal')" style="width: auto;">
+                            <i class="fas fa-plus"></i> Yeni Müşteri
+                        </button>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Müşteri Listesi -->
+                        <div class="card">
+                            <h3 class="card-title">Müşteri Listesi</h3>
+                            <div style="overflow-x: auto; margin-top: 20px;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Müşteri</th>
+                                            <th>Şirket</th>
+                                            <th>Segment</th>
+                                            <th>Durum</th>
+                                            <th>Değer</th>
+                                            <th>Son İletişim</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div style="display: flex; align-items: center; gap: 10px;">
+                                                    <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">AK</div>
+                                                    <div>
+                                                        <strong>Ahmet Kaya</strong>
+                                                        <p style="font-size: 12px; color: var(--gray-500);">ahmet@email.com</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>ABC Ltd.</td>
+                                            <td><span class="status-badge status-active">VIP</span></td>
+                                            <td><span class="status-badge status-active">Aktif</span></td>
+                                            <td>₺250.000</td>
+                                            <td>2 gün önce</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div style="display: flex; align-items: center; gap: 10px;">
+                                                    <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--success); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">MD</div>
+                                                    <div>
+                                                        <strong>Mehmet Demir</strong>
+                                                        <p style="font-size: 12px; color: var(--gray-500);">mehmet@email.com</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>XYZ A.Ş.</td>
+                                            <td><span class="status-badge status-pending">Kurumsal</span></td>
+                                            <td><span class="status-badge status-active">Aktif</span></td>
+                                            <td>₺180.000</td>
+                                            <td>5 gün önce</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div style="display: flex; align-items: center; gap: 10px;">
+                                                    <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">SY</div>
+                                                    <div>
+                                                        <strong>Selin Yılmaz</strong>
+                                                        <p style="font-size: 12px; color: var(--gray-500);">selin@email.com</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>DEF Ltd.</td>
+                                            <td><span class="status-badge status-pending">Bireysel</span></td>
+                                            <td><span class="status-badge status-pending">Pasif</span></td>
+                                            <td>₺45.000</td>
+                                            <td>1 ay önce</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div style="display: flex; align-items: center; gap: 10px;">
+                                                    <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--danger); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">BK</div>
+                                                    <div>
+                                                        <strong>Burak Koç</strong>
+                                                        <p style="font-size: 12px; color: var(--gray-500);">burak@email.com</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>GHI A.Ş.</td>
+                                            <td><span class="status-badge status-active">Kurumsal</span></td>
+                                            <td><span class="status-badge status-active">Aktif</span></td>
+                                            <td>₺320.000</td>
+                                            <td>3 gün önce</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div style="display: flex; align-items: center; gap: 10px;">
+                                                    <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--info); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">EA</div>
+                                                    <div>
+                                                        <strong>Elif Aksoy</strong>
+                                                        <p style="font-size: 12px; color: var(--gray-500);">elif@email.com</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>JKL Ltd.</td>
+                                            <td><span class="status-badge status-pending">Bireysel</span></td>
+                                            <td><span class="status-badge status-active">Aktif</span></td>
+                                            <td>₺85.000</td>
+                                            <td>1 hafta önce</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Satış Hunisi -->
+                        <div class="card">
+                            <h3 class="card-title">Satış Hunisi</h3>
+                            <div style="margin-top: 20px;">
+                                <div style="margin-bottom: 15px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                        <span>Potansiyel Müşteri</span>
+                                        <span>120</span>
+                                    </div>
+                                    <div style="background: var(--gray-200); height: 30px; border-radius: 5px; position: relative;">
+                                        <div style="width: 100%; background: var(--primary); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">120</div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                        <span>Teklif Verilen</span>
+                                        <span>45</span>
+                                    </div>
+                                    <div style="background: var(--gray-200); height: 30px; border-radius: 5px; position: relative;">
+                                        <div style="width: 37.5%; background: var(--info); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">45</div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                        <span>Sipariş Verilen</span>
+                                        <span>30</span>
+                                    </div>
+                                    <div style="background: var(--gray-200); height: 30px; border-radius: 5px; position: relative;">
+                                        <div style="width: 25%; background: var(--warning); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">30</div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                        <span>Tamamlanan</span>
+                                        <span>25</span>
+                                    </div>
+                                    <div style="background: var(--gray-200); height: 30px; border-radius: 5px; position: relative;">
+                                        <div style="width: 20.8%; background: var(--success); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">25</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aktiviteler -->
+                        <div class="card">
+                            <h3 class="card-title">Son Aktiviteler</h3>
+                            <div style="margin-top: 20px;">
+                                <div style="margin-bottom: 15px; padding: 12px; background: var(--gray-50); border-radius: 8px;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <strong>Ahmet Kaya ile görüşme</strong>
+                                        <span style="font-size: 12px; color: var(--gray-500);">2 gün önce</span>
+                                    </div>
+                                    <p style="font-size: 14px; color: var(--gray-600); margin-top: 5px;">Yeni proje teklifi hakkında toplantı yapıldı.</p>
+                                </div>
+                                <div style="margin-bottom: 15px; padding: 12px; background: var(--gray-50); border-radius: 8px;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <strong>Mehmet Demir'e teklif gönderildi</strong>
+                                        <span style="font-size: 12px; color: var(--gray-500);">5 gün önce</span>
+                                    </div>
+                                    <p style="font-size: 14px; color: var(--gray-600); margin-top: 5px;">Yazılım projesi için teklif iletildi.</p>
+                                </div>
+                                <div style="margin-bottom: 15px; padding: 12px; background: var(--gray-50); border-radius: 8px;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <strong>Selin Yılmaz ile takip</strong>
+                                        <span style="font-size: 12px; color: var(--gray-500);">1 hafta önce</span>
+                                    </div>
+                                    <p style="font-size: 14px; color: var(--gray-600); margin-top: 5px;">Müşteri memnuniyeti kontrolü yapıldı.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ EXPERTS - DETAILED ============ -->
+                <div class="page" id="experts-page">
+                    <div style="margin-bottom: 30px;">
+                        <h2 style="font-size: 28px; font-weight: 700;">Uzman Ağı</h2>
+                        <p style="color: var(--gray-500);">12 Uzmanlık Kolu - WhatsApp ile Randevu</p>
+                    </div>
+
+                    <div class="dashboard-grid" id="expertsGrid"></div>
+                </div>
+
+                <!-- ============ MARKETPLACE - DETAILED ============ -->
                 <div class="page" id="marketplace-page">
                     <div style="margin-bottom: 30px;">
                         <h2 style="font-size: 28px; font-weight: 700;">Marketplace</h2>
-                        <p style="color: var(--gray-500);">WhatsApp ile satın alın</p>
+                        <p style="color: var(--gray-500);">12 Ürün ve Hizmet - WhatsApp ile Satın Al</p>
                     </div>
+
                     <div class="dashboard-grid" id="marketplaceGrid"></div>
                 </div>
 
-                <!-- Consulting Page -->
+                <!-- ============ CONSULTING - DETAILED ============ -->
                 <div class="page" id="consulting-page">
                     <div style="margin-bottom: 30px;">
                         <h2 style="font-size: 28px; font-weight: 700;">Danışmanlık Paketleri</h2>
-                        <p style="color: var(--gray-500);">WhatsApp ile satın alın</p>
+                        <p style="color: var(--gray-500);">4 Özel Paket - WhatsApp ile Satın Al</p>
                     </div>
+
                     <div class="dashboard-grid" id="consultingPackages"></div>
                 </div>
 
-                <!-- Coaching Page -->
+                <!-- ============ COACHING - DETAILED ============ -->
                 <div class="page" id="coaching-page">
                     <div style="margin-bottom: 30px;">
                         <h2 style="font-size: 28px; font-weight: 700;">Koçluk Hizmetleri</h2>
                         <p style="color: var(--gray-500);">Liderlik, Girişimcilik, CFO ve Longevity Koçluğu</p>
                     </div>
+
                     <div class="dashboard-grid" id="coachingServices"></div>
-                </div>
-
-                <!-- AI Reports Page -->
-                <div class="page" id="ai-reports-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">AI Raporlar</h2>
-                        <p style="color: var(--gray-500);">Gemini AI destekli raporlar</p>
-                    </div>
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">Rapor Türleri</h3>
-                            <div style="margin-top: 20px;">
-                                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="generateReport('financial')">
-                                    <i class="fas fa-chart-line"></i> Finansal Rapor
-                                </button>
-                                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="generateReport('business')">
-                                    <i class="fas fa-building"></i> İşletme Raporu
-                                </button>
-                                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="generateReport('longevity')">
-                                    <i class="fas fa-heartbeat"></i> Longevity Raporu
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Rapor Sonucu</h3>
-                            <div id="reportResult" style="margin-top: 20px;">
-                                <p style="color: var(--gray-500);">Rapor oluşturmak için bir tür seçin</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Admin Page -->
-                <div class="page" id="admin-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">Yönetim Paneli</h2>
-                        <p style="color: var(--gray-500);">2FA Korumalı</p>
-                    </div>
-
-                    <div class="card" id="adminLogin" style="max-width: 400px; margin: 0 auto;">
-                        <h3 class="card-title">Admin Girişi</h3>
-                        <form onsubmit="adminLogin(event)" style="margin-top: 20px;">
-                            <div class="form-group">
-                                <label>Admin Şifresi</label>
-                                <input type="password" class="form-input" id="adminPassword" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Giriş Yap</button>
-                        </form>
-                    </div>
-
-                    <div id="adminContent" style="display: none;">
-                        <div class="dashboard-grid">
-                            <div class="card">
-                                <h3 class="card-title">Modül Yönetimi</h3>
-                                <div id="moduleManagement" style="margin-top: 20px;"></div>
-                            </div>
-                            <div class="card">
-                                <h3 class="card-title">Ürün/Hizmet Yönetimi</h3>
-                                <button class="btn btn-primary" onclick="openModal('addProductModal')" style="width: auto; margin-bottom: 20px;">
-                                    <i class="fas fa-plus"></i> Yeni Ürün
-                                </button>
-                                <div id="productManagement"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Footer -->
@@ -1346,59 +1758,59 @@
     </div>
 
     <!-- Modals -->
-    <div class="modal" id="addProductModal">
+    <div class="modal" id="addTransactionModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="card-title">Yeni Ürün/Hizmet</h3>
-                <button class="modal-close" onclick="closeModal('addProductModal')">&times;</button>
+                <h3 class="card-title">Yeni İşlem</h3>
+                <button class="modal-close" onclick="closeModal('addTransactionModal')">&times;</button>
             </div>
-            <form onsubmit="addProduct(event)">
+            <form onsubmit="addTransaction(event)">
                 <div class="form-group">
-                    <label>Ad</label>
-                    <input type="text" class="form-input" id="productName" required>
+                    <label>İşlem Tipi</label>
+                    <select class="form-input">
+                        <option value="EXPENSE">Gider</option>
+                        <option value="INCOME">Gelir</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Fiyat (₺)</label>
-                    <input type="number" class="form-input" id="productPrice" required>
+                    <label>Tutar</label>
+                    <input type="number" class="form-input" required>
                 </div>
                 <div class="form-group">
                     <label>Açıklama</label>
-                    <textarea class="form-input" id="productDescription" rows="3"></textarea>
+                    <input type="text" class="form-input">
                 </div>
-                <button type="submit" class="btn btn-primary">Ekle</button>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="addCustomerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="card-title">Yeni Müşteri</h3>
+                <button class="modal-close" onclick="closeModal('addCustomerModal')">&times;</button>
+            </div>
+            <form onsubmit="addCustomer(event)">
+                <div class="form-group">
+                    <label>Ad Soyad</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Şirket</label>
+                    <input type="text" class="form-input">
+                </div>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
             </form>
         </div>
     </div>
 
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
-
-    <script type="module">
-        import { GoogleGenerativeAI } from '@google/generative-ai';
-        
-        // Gemini AI Configuration
-        const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY'; // Replace with actual API key
-        const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-        
-        window.generateGeminiReport = async function(type) {
-            try {
-                const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
-                
-                const prompts = {
-                    financial: 'Finansal durum analizi yap ve öneriler sun. Gelir: 85,000₺, Gider: 45,000₺, Net Değer: 1,250,000₺',
-                    business: 'İşletme performans analizi yap. Gelir: 450,000₺, EBITDA: 150,000₺, Müşteri: 1,250',
-                    longevity: 'Longevity analizi yap. 60 biyobelirteç değerlendir. Biyolojik yaş: 32, Kronolojik yaş: 30'
-                };
-                
-                const result = await model.generateContent(prompts[type]);
-                const response = await result.response;
-                return response.text();
-            } catch (error) {
-                console.error('Gemini API error:', error);
-                return 'Gemini AI şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.';
-            }
-        };
-    </script>
 
     <script>
         // ============ GLOBAL STATE ============
@@ -1410,270 +1822,58 @@
             darkMode: false,
             isAdmin: false,
             products: [],
-            modules: [],
             twoFactorCode: '',
-        };
-
-        // ============ 60 BIOMARKERS ============
-        const biomarkers = [
-            { name: 'Kan Şekeri (Açlık)', value: 92, unit: 'mg/dL', min: 70, max: 100 },
-            { name: 'HbA1c', value: 5.4, unit: '%', min: 4.0, max: 5.6 },
-            { name: 'Total Kolesterol', value: 185, unit: 'mg/dL', min: 125, max: 200 },
-            { name: 'HDL Kolesterol', value: 55, unit: 'mg/dL', min: 40, max: 60 },
-            { name: 'LDL Kolesterol', value: 130, unit: 'mg/dL', min: 0, max: 100 },
-            { name: 'Trigliserit', value: 120, unit: 'mg/dL', min: 0, max: 150 },
-            { name: 'Vitamin D (25-OH)', value: 25, unit: 'ng/mL', min: 30, max: 50 },
-            { name: 'Vitamin B12', value: 450, unit: 'pg/mL', min: 200, max: 900 },
-            { name: 'Folat', value: 12, unit: 'ng/mL', min: 3, max: 17 },
-            { name: 'Ferritin', value: 120, unit: 'ng/mL', min: 30, max: 400 },
-            { name: 'Demir', value: 90, unit: 'µg/dL', min: 60, max: 170 },
-            { name: 'TSH', value: 2.1, unit: 'mIU/L', min: 0.4, max: 4.0 },
-            { name: 'Serbest T3', value: 3.2, unit: 'pg/mL', min: 2.3, max: 4.2 },
-            { name: 'Serbest T4', value: 1.2, unit: 'ng/dL', min: 0.8, max: 1.8 },
-            { name: 'Kortizol (Sabah)', value: 15, unit: 'µg/dL', min: 6, max: 23 },
-            { name: 'DHEA-S', value: 250, unit: 'µg/dL', min: 80, max: 560 },
-            { name: 'Testosteron', value: 600, unit: 'ng/dL', min: 300, max: 1000 },
-            { name: 'Östrojen', value: 30, unit: 'pg/mL', min: 15, max: 350 },
-            { name: 'Progesteron', value: 0.5, unit: 'ng/mL', min: 0.1, max: 25 },
-            { name: 'CRP (hs-CRP)', value: 1.5, unit: 'mg/L', min: 0, max: 3 },
-            { name: 'Homosistein', value: 9, unit: 'µmol/L', min: 5, max: 15 },
-            { name: 'İnsülin (Açlık)', value: 8, unit: 'µIU/mL', min: 2, max: 19 },
-            { name: 'HOMA-IR', value: 1.8, unit: '', min: 0, max: 2.5 },
-            { name: 'Ürik Asit', value: 5.5, unit: 'mg/dL', min: 3.5, max: 7.2 },
-            { name: 'Kreatinin', value: 0.9, unit: 'mg/dL', min: 0.7, max: 1.3 },
-            { name: 'BUN', value: 15, unit: 'mg/dL', min: 7, max: 20 },
-            { name: 'AST (SGOT)', value: 25, unit: 'U/L', min: 10, max: 40 },
-            { name: 'ALT (SGPT)', value: 30, unit: 'U/L', min: 7, max: 56 },
-            { name: 'GGT', value: 25, unit: 'U/L', min: 9, max: 48 },
-            { name: 'Alkalen Fosfataz', value: 70, unit: 'U/L', min: 44, max: 147 },
-            { name: 'Total Bilirubin', value: 0.8, unit: 'mg/dL', min: 0.1, max: 1.2 },
-            { name: 'Albümin', value: 4.5, unit: 'g/dL', min: 3.5, max: 5.5 },
-            { name: 'Total Protein', value: 7.0, unit: 'g/dL', min: 6.0, max: 8.3 },
-            { name: 'Kalsiyum', value: 9.5, unit: 'mg/dL', min: 8.5, max: 10.5 },
-            { name: 'Magnezyum', value: 2.0, unit: 'mg/dL', min: 1.7, max: 2.2 },
-            { name: 'Potasyum', value: 4.2, unit: 'mEq/L', min: 3.5, max: 5.0 },
-            { name: 'Sodyum', value: 140, unit: 'mEq/L', min: 135, max: 145 },
-            { name: 'Klorür', value: 102, unit: 'mEq/L', min: 96, max: 106 },
-            { name: 'Fosfor', value: 3.5, unit: 'mg/dL', min: 2.5, max: 4.5 },
-            { name: 'Çinko', value: 90, unit: 'µg/dL', min: 60, max: 120 },
-            { name: 'Selenyum', value: 120, unit: 'µg/L', min: 70, max: 150 },
-            { name: 'Bakır', value: 100, unit: 'µg/dL', min: 70, max: 140 },
-            { name: 'Manganez', value: 1.0, unit: 'ng/mL', min: 0.5, max: 2.0 },
-            { name: 'Krom', value: 0.3, unit: 'ng/mL', min: 0.1, max: 0.5 },
-            { name: 'İyot', value: 100, unit: 'µg/L', min: 40, max: 150 },
-            { name: 'Koenzim Q10', value: 0.8, unit: 'µg/mL', min: 0.5, max: 1.5 },
-            { name: 'Glutatyon', value: 5.0, unit: 'µM', min: 3.0, max: 7.0 },
-            { name: 'Süperoksit Dismutaz', value: 1.5, unit: 'U/mL', min: 1.0, max: 2.0 },
-            { name: 'Katalaz', value: 50, unit: 'U/mL', min: 30, max: 70 },
-            { name: 'Glutatyon Peroksidaz', value: 45, unit: 'U/g Hb', min: 30, max: 60 },
-            { name: 'Malondialdehit', value: 2.0, unit: 'µM', min: 0, max: 4.0 },
-            { name: '8-OHdG', value: 5.0, unit: 'ng/mL', min: 0, max: 10 },
-            { name: 'Telomer Uzunluğu', value: 7.5, unit: 'kb', min: 5, max: 10 },
-            { name: 'DNA Metilasyon Yaşı', value: 28, unit: 'yıl', min: 20, max: 40 },
-            { name: 'İnflamasyon Skoru', value: 2, unit: '', min: 0, max: 5 },
-            { name: 'Oksidatif Stres', value: 3, unit: '', min: 0, max: 5 },
-            { name: 'Mitokondriyal Fonksiyon', value: 80, unit: '%', min: 60, max: 100 },
-            { name: 'İnsülin Duyarlılığı', value: 85, unit: '%', min: 60, max: 100 },
-            { name: 'Kardiyovasküler Risk', value: 2, unit: '', min: 0, max: 5 },
-            { name: 'Nörolojik Sağlık', value: 85, unit: '%', min: 60, max: 100 }
-        ];
-
-        // ============ 10 PORTFOLIO ASSETS ============
-        const portfolioAssets = [
-            { name: 'BIST 100 ETF', type: 'ETF', value: 250000, allocation: 20, return: 18.5 },
-            { name: 'Altın', type: 'Emtia', value: 200000, allocation: 16, return: 12.3 },
-            { name: 'ABD Hisse Senedi', type: 'Hisse', value: 187500, allocation: 15, return: 15.2 },
-            { name: 'Devlet Tahvili', type: 'Tahvil', value: 150000, allocation: 12, return: 8.5 },
-            { name: 'Gayrimenkul', type: 'Gayrimenkul', value: 125000, allocation: 10, return: 10.1 },
-            { name: 'Kripto Para', type: 'Kripto', value: 100000, allocation: 8, return: 25.4 },
-            { name: 'Yabancı ETF', type: 'ETF', value: 87500, allocation: 7, return: 14.8 },
-            { name: 'Gümüş', type: 'Emtia', value: 75000, allocation: 6, return: 9.7 },
-            { name: 'Kurumsal Tahvil', type: 'Tahvil', value: 50000, allocation: 4, return: 9.2 },
-            { name: 'Nakit', type: 'Nakit', value: 25000, allocation: 2, return: 2.0 }
-        ];
-
-        // ============ 8 BUDGET ITEMS ============
-        const budgetItems = {
-            income: [
-                { name: 'Maaş', amount: 85000, frequency: 'Aylık' },
-                { name: 'Serbest Çalışma', amount: 15000, frequency: 'Aylık' },
-                { name: 'Kira Geliri', amount: 8000, frequency: 'Aylık' },
-                { name: 'Temettü', amount: 3000, frequency: 'Aylık' }
-            ],
-            expense: [
-                { name: 'Konut', amount: 15000, frequency: 'Aylık' },
-                { name: 'Gıda', amount: 5000, frequency: 'Aylık' },
-                { name: 'Ulaşım', amount: 3000, frequency: 'Aylık' },
-                { name: 'Sağlık', amount: 2000, frequency: 'Aylık' }
-            ]
         };
 
         // ============ 12 EXPERTS ============
         const experts = [
-            { name: 'Ahmet Kaya', category: 'Finans', rating: 4.8, reviews: 24, price: 1500 },
-            { name: 'Selin Demir', category: 'Beslenme', rating: 4.6, reviews: 18, price: 1200 },
-            { name: 'Murat Yıldız', category: 'İşletme', rating: 4.9, reviews: 32, price: 2000 },
-            { name: 'Ayşe Şahin', category: 'Psikoloji', rating: 4.7, reviews: 15, price: 1800 },
-            { name: 'Mehmet Öztürk', category: 'Gayrimenkul', rating: 4.5, reviews: 20, price: 1600 },
-            { name: 'Zeynep Arslan', category: 'Fitness', rating: 4.8, reviews: 28, price: 1000 },
-            { name: 'Ali Yılmaz', category: 'Muhasebe', rating: 4.6, reviews: 22, price: 1400 },
-            { name: 'Fatma Koç', category: 'Hukuk', rating: 4.9, reviews: 35, price: 2500 },
-            { name: 'Emre Aydın', category: 'Teknoloji', rating: 4.7, reviews: 19, price: 1700 },
-            { name: 'Elif Doğan', category: 'Eğitim', rating: 4.5, reviews: 16, price: 1300 },
-            { name: 'Can Özkan', category: 'Pazarlama', rating: 4.8, reviews: 26, price: 1500 },
-            { name: 'Deniz Yalçın', category: 'Kariyer', rating: 4.6, reviews: 21, price: 1600 }
+            { name: 'Ahmet Kaya', category: 'Finans', specialization: 'Yatırım ve Portföy Yönetimi', rating: 4.8, reviews: 24, price: 1500, experience: '15 yıl', languages: ['TR', 'EN'], city: 'İstanbul' },
+            { name: 'Selin Demir', category: 'Beslenme', specialization: 'Klinik Beslenme ve Diyet', rating: 4.6, reviews: 18, price: 1200, experience: '10 yıl', languages: ['TR'], city: 'Ankara' },
+            { name: 'Murat Yıldız', category: 'İşletme', specialization: 'Stratejik Yönetim', rating: 4.9, reviews: 32, price: 2000, experience: '20 yıl', languages: ['TR', 'EN'], city: 'İstanbul' },
+            { name: 'Ayşe Şahin', category: 'Psikoloji', specialization: 'Klinik Psikoloji', rating: 4.7, reviews: 15, price: 1800, experience: '12 yıl', languages: ['TR'], city: 'İzmir' },
+            { name: 'Mehmet Öztürk', category: 'Gayrimenkul', specialization: 'Yatırım Danışmanlığı', rating: 4.5, reviews: 20, price: 1600, experience: '8 yıl', languages: ['TR'], city: 'Bursa' },
+            { name: 'Zeynep Arslan', category: 'Fitness', specialization: 'Personal Trainer', rating: 4.8, reviews: 28, price: 1000, experience: '7 yıl', languages: ['TR', 'EN'], city: 'Antalya' },
+            { name: 'Ali Yılmaz', category: 'Muhasebe', specialization: 'Vergi Danışmanlığı', rating: 4.6, reviews: 22, price: 1400, experience: '18 yıl', languages: ['TR'], city: 'Bursa' },
+            { name: 'Fatma Koç', category: 'Hukuk', specialization: 'Ticaret Hukuku', rating: 4.9, reviews: 35, price: 2500, experience: '22 yıl', languages: ['TR', 'EN'], city: 'İstanbul' },
+            { name: 'Emre Aydın', category: 'Teknoloji', specialization: 'Yazılım Mimarisi', rating: 4.7, reviews: 19, price: 1700, experience: '14 yıl', languages: ['TR', 'EN'], city: 'Ankara' },
+            { name: 'Elif Doğan', category: 'Eğitim', specialization: 'Kariyer Koçluğu', rating: 4.5, reviews: 16, price: 1300, experience: '9 yıl', languages: ['TR'], city: 'İzmir' },
+            { name: 'Can Özkan', category: 'Pazarlama', specialization: 'Dijital Pazarlama', rating: 4.8, reviews: 26, price: 1500, experience: '11 yıl', languages: ['TR', 'EN'], city: 'İstanbul' },
+            { name: 'Deniz Yalçın', category: 'Kariyer', specialization: 'İnsan Kaynakları', rating: 4.6, reviews: 21, price: 1600, experience: '13 yıl', languages: ['TR'], city: 'Bursa' }
         ];
 
         // ============ 12 MARKETPLACE PRODUCTS ============
         const marketplaceProducts = [
-            { name: 'Organik Zeytinyağı', category: 'Gıda', price: 180, emoji: '🫒' },
-            { name: 'Doğal Bal', category: 'Gıda', price: 250, emoji: '🍯' },
-            { name: 'Bitkisel Çay Seti', category: 'Gıda', price: 375, emoji: '🍵' },
-            { name: 'Doğal Sabun', category: 'Kozmetik', price: 75, emoji: '🧼' },
-            { name: 'El Yapımı Krem', category: 'Kozmetik', price: 150, emoji: '🧴' },
-            { name: 'FIRE E-Kitap', category: 'Dijital', price: 99, emoji: '📚' },
-            { name: 'Yatırım Rehberi', category: 'Dijital', price: 149, emoji: '📊' },
-            { name: 'Meditasyon Kursu', category: 'Eğitim', price: 299, emoji: '🧘' },
-            { name: 'Yoga Eğitimi', category: 'Eğitim', price: 449, emoji: '🧘‍♀️' },
-            { name: 'Finansal Analiz', category: 'Hizmet', price: 999, emoji: '📈' },
-            { name: 'Portföy Danışmanlığı', category: 'Hizmet', price: 1999, emoji: '💼' },
-            { name: 'Longevity Check-up', category: 'Sağlık', price: 2999, emoji: '🏥' }
+            { name: 'Organik Zeytinyağı', category: 'Gıda', price: 180, emoji: '🫒', description: 'Soğuk sıkım, naturel sızma', stock: 250 },
+            { name: 'Doğal Bal', category: 'Gıda', price: 250, emoji: '🍯', description: 'Katkısız çiçek balı', stock: 45 },
+            { name: 'Bitkisel Çay Seti', category: 'Gıda', price: 375, emoji: '🍵', description: '5 farklı bitki çayı', stock: 120 },
+            { name: 'Doğal Sabun', category: 'Kozmetik', price: 75, emoji: '🧼', description: 'El yapımı zeytinyağlı', stock: 500 },
+            { name: 'El Yapımı Krem', category: 'Kozmetik', price: 150, emoji: '🧴', description: 'Doğal içerikli nemlendirici', stock: 200 },
+            { name: 'FIRE E-Kitap', category: 'Dijital', price: 99, emoji: '📚', description: 'Finansal özgürlük rehberi', stock: 999 },
+            { name: 'Yatırım Rehberi', category: 'Dijital', price: 149, emoji: '📊', description: 'Yatırım stratejileri', stock: 999 },
+            { name: 'Meditasyon Kursu', category: 'Eğitim', price: 299, emoji: '🧘', description: 'Online meditasyon eğitimi', stock: 50 },
+            { name: 'Yoga Eğitimi', category: 'Eğitim', price: 449, emoji: '🧘‍♀️', description: 'Online yoga dersleri', stock: 30 },
+            { name: 'Finansal Analiz', category: 'Hizmet', price: 999, emoji: '📈', description: 'Kişisel finansal analiz', stock: 10 },
+            { name: 'Portföy Danışmanlığı', category: 'Hizmet', price: 1999, emoji: '💼', description: 'Yatırım portföyü danışmanlığı', stock: 5 },
+            { name: 'Longevity Check-up', category: 'Sağlık', price: 2999, emoji: '🏥', description: '60 biyobelirteç analizi', stock: 3 }
         ];
 
         // ============ 4 CONSULTING PACKAGES ============
         const consultingPackages = [
-            { name: 'Temel Danışmanlık', price: 5000, duration: '1 Ay', features: ['Finansal analiz', 'Bütçe planı', '1 görüşme'] },
-            { name: 'Pro Danışmanlık', price: 12000, duration: '3 Ay', features: ['Kapsamlı analiz', 'Yatırım stratejisi', '4 görüşme'] },
-            { name: 'Business Danışmanlık', price: 25000, duration: '6 Ay', features: ['İşletme analizi', 'Büyüme stratejisi', '12 görüşme'] },
-            { name: 'Premium Danışmanlık', price: 50000, duration: '12 Ay', features: ['Tam kapsamlı', 'Kişisel CFO', 'Sınırsız görüşme'] }
+            { name: 'Temel Danışmanlık', price: 5000, duration: '1 Ay', features: ['Finansal analiz', 'Bütçe planı', '1 görüşme', 'E-posta desteği'] },
+            { name: 'Pro Danışmanlık', price: 12000, duration: '3 Ay', features: ['Kapsamlı analiz', 'Yatırım stratejisi', '4 görüşme', 'E-posta desteği', 'Telefon desteği'] },
+            { name: 'Business Danışmanlık', price: 25000, duration: '6 Ay', features: ['İşletme analizi', 'Büyüme stratejisi', '12 görüşme', '7/24 destek', 'Öncelikli hizmet'] },
+            { name: 'Premium Danışmanlık', price: 50000, duration: '12 Ay', features: ['Tam kapsamlı danışmanlık', 'Kişisel CFO', 'Sınırsız görüşme', '7/24 destek', 'Aylık raporlama'] }
         ];
 
         // ============ 4 COACHING SERVICES ============
         const coachingServices = [
-            { name: 'Liderlik Koçluğu', price: 7500, duration: '3 Ay', features: ['Liderlik değerlendirmesi', 'Kişisel gelişim planı', '6 seans'] },
-            { name: 'Girişimcilik Koçluğu', price: 10000, duration: '6 Ay', features: ['İş planı', 'Pazar analizi', 'Mentorluk'] },
-            { name: 'CFO Koçluğu', price: 15000, duration: '6 Ay', features: ['Finansal eğitim', 'Bütçe yönetimi', 'Yatırım stratejisi'] },
-            { name: 'Longevity Koçluğu', price: 8000, duration: '3 Ay', features: ['Sağlık analizi', '60 biyobelirteç takibi', 'Yaşam tarzı planı'] }
+            { name: 'Liderlik Koçluğu', price: 7500, duration: '3 Ay', features: ['Liderlik değerlendirmesi', 'Kişisel gelişim planı', '6 seans', 'E-posta desteği'] },
+            { name: 'Girişimcilik Koçluğu', price: 10000, duration: '6 Ay', features: ['İş planı oluşturma', 'Pazar analizi', 'Mentorluk', 'Network desteği'] },
+            { name: 'CFO Koçluğu', price: 15000, duration: '6 Ay', features: ['Finansal eğitim', 'Bütçe yönetimi', 'Yatırım stratejisi', 'Aylık raporlama'] },
+            { name: 'Longevity Koçluğu', price: 8000, duration: '3 Ay', features: ['Sağlık analizi', '60 biyobelirteç takibi', 'Yaşam tarzı planı', 'Aylık takip'] }
         ];
-
-        // ============ MODULES ============
-        const modules = [
-            { name: 'Dashboard', enabled: true },
-            { name: 'Finans', enabled: true },
-            { name: 'FIRE', enabled: true },
-            { name: 'Longevity', enabled: true },
-            { name: 'Bütçe', enabled: true },
-            { name: 'Portföy', enabled: true },
-            { name: 'İşletme', enabled: true },
-            { name: 'CRM', enabled: true },
-            { name: 'Uzmanlar', enabled: true },
-            { name: 'Marketplace', enabled: true },
-            { name: 'Danışmanlık', enabled: true },
-            { name: 'Koçluk', enabled: true },
-            { name: 'AI CFO', enabled: true },
-            { name: 'AI Raporlar', enabled: true }
-        ];
-
-        // ============ INITIALIZATION ============
-        function initializeApp() {
-            renderBiomarkers();
-            renderPortfolio();
-            renderBudgetItems();
-            renderExperts();
-            renderMarketplace();
-            renderConsultingPackages();
-            renderCoachingServices();
-            renderModules();
-            renderProducts();
-            initializeCharts();
-        }
 
         // ============ RENDER FUNCTIONS ============
-        function renderBiomarkers() {
-            const tbody = document.getElementById('biomarkersTable');
-            tbody.innerHTML = '';
-            
-            biomarkers.forEach((bio, index) => {
-                const status = bio.value >= bio.min && bio.value <= bio.max ? 'Normal' : 'Anormal';
-                const statusClass = status === 'Normal' ? 'status-active' : 'status-pending';
-                
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${bio.name}</td>
-                    <td>${bio.value} ${bio.unit}</td>
-                    <td>${bio.min}-${bio.max} ${bio.unit}</td>
-                    <td><span class="status-badge ${statusClass}">${status}</span></td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        function renderPortfolio() {
-            const container = document.getElementById('portfolioAssets');
-            container.innerHTML = '';
-            
-            portfolioAssets.forEach(asset => {
-                const item = document.createElement('div');
-                item.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--gray-200);';
-                item.innerHTML = `
-                    <div>
-                        <strong>${asset.name}</strong>
-                        <p style="font-size: 12px; color: var(--gray-500);">${asset.type}</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <strong>₺${asset.value.toLocaleString('tr-TR')}</strong>
-                        <p style="font-size: 12px; color: ${asset.return > 0 ? 'var(--success)' : 'var(--danger)'};">%${asset.return}</p>
-                    </div>
-                `;
-                container.appendChild(item);
-            });
-            
-            const ctx = document.getElementById('portfolioChart');
-            if (ctx) {
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: portfolioAssets.map(a => a.name),
-                        datasets: [{
-                            data: portfolioAssets.map(a => a.value),
-                            backgroundColor: ['#6366f1', '#f59e0b', '#10b981', '#ef4444', '#3b82f6', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316', '#64748b']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom' } }
-                    }
-                });
-            }
-        }
-
-        function renderBudgetItems() {
-            const incomeContainer = document.getElementById('incomeItems');
-            const expenseContainer = document.getElementById('expenseItems');
-            
-            incomeContainer.innerHTML = '<h4 style="margin-bottom: 15px; color: var(--success);">Gelirler (4)</h4>';
-            budgetItems.income.forEach(item => {
-                incomeContainer.innerHTML += `
-                    <div style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid var(--gray-200);">
-                        <span>${item.name}</span>
-                        <strong style="color: var(--success);">₺${item.amount.toLocaleString('tr-TR')}</strong>
-                    </div>
-                `;
-            });
-            
-            expenseContainer.innerHTML = '<h4 style="margin-bottom: 15px; color: var(--danger);">Giderler (4)</h4>';
-            budgetItems.expense.forEach(item => {
-                expenseContainer.innerHTML += `
-                    <div style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid var(--gray-200);">
-                        <span>${item.name}</span>
-                        <strong style="color: var(--danger);">₺${item.amount.toLocaleString('tr-TR')}</strong>
-                    </div>
-                `;
-            });
-        }
-
         function renderExperts() {
             const container = document.getElementById('expertsGrid');
             if (!container) return;
@@ -1682,19 +1882,28 @@
             experts.forEach(expert => {
                 const card = document.createElement('div');
                 card.className = 'card';
-                card.style.textAlign = 'center';
                 card.innerHTML = `
-                    <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; font-weight: 700;">
-                        ${expert.name.split(' ').map(n => n[0]).join('')}
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; font-weight: 700;">
+                            ${expert.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <h4 style="font-weight: 600;">${expert.name}</h4>
+                        <p style="color: var(--gray-500);">${expert.category} Uzmanı</p>
+                        <p style="font-size: 12px; color: var(--gray-400); margin-top: 5px;">${expert.specialization}</p>
                     </div>
-                    <h4 style="font-weight: 600;">${expert.name}</h4>
-                    <p style="color: var(--gray-500);">${expert.category} Uzmanı</p>
-                    <div style="margin: 15px 0;">
+                    <div style="margin: 15px 0; text-align: center;">
                         <span style="color: var(--gold);">★</span>
-                        <span>${expert.rating} (${expert.reviews})</span>
+                        <span>${expert.rating} (${expert.reviews} değerlendirme)</span>
                     </div>
-                    <p style="font-size: 20px; font-weight: 700; color: var(--primary);">₺${expert.price}/saat</p>
-                    <button class="btn btn-whatsapp" style="margin-top: 15px;" onclick="buyViaWhatsApp('${expert.name}', ${expert.price}, 'Uzman')">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-500); margin-bottom: 15px;">
+                        <span>Deneyim: ${expert.experience}</span>
+                        <span>Şehir: ${expert.city}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-500); margin-bottom: 15px;">
+                        <span>Diller: ${expert.languages.join(', ')}</span>
+                    </div>
+                    <p style="font-size: 20px; font-weight: 700; color: var(--primary); text-align: center;">₺${expert.price}/saat</p>
+                    <button class="btn btn-whatsapp" style="margin-top: 15px;" onclick="buyViaWhatsApp('${expert.name}', ${expert.price}, 'Uzman Randevusu')">
                         <i class="fab fa-whatsapp"></i> WhatsApp ile Randevu
                     </button>
                 `;
@@ -1704,6 +1913,7 @@
 
         function renderMarketplace() {
             const container = document.getElementById('marketplaceGrid');
+            if (!container) return;
             container.innerHTML = '';
             
             marketplaceProducts.forEach(product => {
@@ -1715,8 +1925,10 @@
                         ${product.emoji}
                     </div>
                     <h4 style="font-weight: 600;">${product.name}</h4>
-                    <p style="color: var(--gray-500);">${product.category}</p>
+                    <p style="color: var(--gray-500); font-size: 12px; margin-top: 5px;">${product.description}</p>
+                    <p style="font-size: 14px; color: var(--gray-400); margin-top: 5px;">Kategori: ${product.category}</p>
                     <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin-top: 10px;">₺${product.price}</p>
+                    <p style="font-size: 12px; color: var(--gray-500); margin-top: 5px;">Stok: ${product.stock}</p>
                     <button class="btn btn-whatsapp" style="margin-top: 15px; width: 100%;" onclick="buyViaWhatsApp('${product.name}', ${product.price}, 'Ürün')">
                         <i class="fab fa-whatsapp"></i> WhatsApp ile Satın Al
                     </button>
@@ -1727,6 +1939,7 @@
 
         function renderConsultingPackages() {
             const container = document.getElementById('consultingPackages');
+            if (!container) return;
             container.innerHTML = '';
             
             consultingPackages.forEach(pkg => {
@@ -1751,6 +1964,7 @@
 
         function renderCoachingServices() {
             const container = document.getElementById('coachingServices');
+            if (!container) return;
             container.innerHTML = '';
             
             coachingServices.forEach(service => {
@@ -1773,235 +1987,14 @@
             });
         }
 
-        function renderModules() {
-            const container = document.getElementById('moduleManagement');
-            if (!container) return;
-            container.innerHTML = '';
-            
-            modules.forEach((module, index) => {
-                const item = document.createElement('div');
-                item.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid var(--gray-200);';
-                item.innerHTML = `
-                    <span>${module.name}</span>
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <input type="checkbox" ${module.enabled ? 'checked' : ''} onchange="toggleModule(${index}, this.checked)">
-                        <button class="btn btn-danger btn-sm" onclick="deleteModule(${index})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `;
-                container.appendChild(item);
-            });
-        }
-
-        function renderProducts() {
-            const container = document.getElementById('productManagement');
-            if (!container) return;
-            container.innerHTML = '';
-            
-            state.products.forEach((product, index) => {
-                const item = document.createElement('div');
-                item.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid var(--gray-200);';
-                item.innerHTML = `
-                    <div>
-                        <strong>${product.name}</strong>
-                        <p style="font-size: 12px; color: var(--gray-500);">₺${product.price}</p>
-                    </div>
-                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                `;
-                container.appendChild(item);
-            });
-        }
-
-        // ============ FIRE CALCULATOR ============
-        function calculateFIRE() {
-            const currentAge = parseInt(document.getElementById('fireAge').value);
-            const retirementAge = parseInt(document.getElementById('fireRetirementAge').value);
-            const annualIncome = parseFloat(document.getElementById('fireIncome').value);
-            const annualExpenses = parseFloat(document.getElementById('fireExpenses').value);
-            const currentNetWorth = parseFloat(document.getElementById('fireNetWorth').value);
-            const investmentReturn = parseFloat(document.getElementById('fireReturn').value) / 100;
-            
-            // FIRE Number = 25x annual expenses
-            const fireNumber = annualExpenses * 25;
-            
-            // Calculate years to FIRE
-            const annualSavings = annualIncome - annualExpenses;
-            let yearsToFIRE = 0;
-            let portfolio = currentNetWorth;
-            
-            while (portfolio < fireNumber && yearsToFIRE < 100) {
-                portfolio = portfolio * (1 + investmentReturn) + annualSavings;
-                yearsToFIRE++;
-            }
-            
-            const fireYear = new Date().getFullYear() + yearsToFIRE;
-            const fireDate = new Date();
-            fireDate.setFullYear(fireDate.getFullYear() + yearsToFIRE);
-            
-            // Update UI
-            document.getElementById('fireNumberResult').textContent = '₺' + fireNumber.toLocaleString('tr-TR');
-            document.getElementById('fireYearResult').textContent = fireYear;
-            document.getElementById('fireDurationResult').textContent = yearsToFIRE + ' yıl';
-            
-            // Update chart
-            const labels = [];
-            const data = [];
-            let chartPortfolio = currentNetWorth;
-            
-            for (let year = 0; year <= yearsToFIRE + 5; year++) {
-                labels.push(new Date().getFullYear() + year);
-                data.push(chartPortfolio);
-                chartPortfolio = chartPortfolio * (1 + investmentReturn) + annualSavings;
-            }
-            
-            const ctx = document.getElementById('fireChart');
-            if (ctx) {
-                // Destroy existing chart
-                if (window.fireChartInstance) {
-                    window.fireChartInstance.destroy();
-                }
-                
-                window.fireChartInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [
-                            {
-                                label: 'Portföy Değeri',
-                                data: data,
-                                borderColor: '#10b981',
-                                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                                tension: 0.4,
-                                fill: true
-                            },
-                            {
-                                label: 'FIRE Hedefi',
-                                data: Array(labels.length).fill(fireNumber),
-                                borderColor: '#ef4444',
-                                borderDash: [5, 5],
-                                pointRadius: 0
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom' } },
-                        scales: {
-                            y: {
-                                ticks: {
-                                    callback: function(value) {
-                                        return '₺' + (value / 1000000).toFixed(1) + 'M';
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-            
-            showToast(`FIRE hedefinize ${yearsToFIRE} yıl içinde (${fireYear}) ulaşabilirsiniz!`, 'success');
-        }
-
         // ============ WHATSAPP INTEGRATION ============
         function buyViaWhatsApp(productName, price, type) {
-            const phoneNumber = '905409666602'; // Orhan Boyraz'ın telefonu
-            const message = `Merhaba, ANADOLU SUPER OS üzerinden ${type} satın almak istiyorum.\n\nÜrün: ${productName}\nFiyat: ₺${price}\n\nLütfen ödeme bilgilerini paylaşır mısınız?`;
+            const phoneNumber = '905409666602';
+            const message = `Merhaba, ANADOLU SUPER OS üzerinden ${type} satın almak istiyorum.\n\nÜrün/Hizmet: ${productName}\nFiyat: ₺${price}\n\nLütfen ödeme bilgilerini paylaşır mısınız?`;
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             window.open(whatsappUrl, '_blank');
             showToast('WhatsApp yönlendiriliyor...', 'success');
-        }
-
-        // ============ 2FA FUNCTIONS ============
-        function send2FACode() {
-            const code = Math.floor(100000 + Math.random() * 900000).toString();
-            state.twoFactorCode = code;
-            console.log('2FA Code:', code); // In production, send via SMS
-            showToast('2FA kodu gönderildi: ' + code, 'info');
-        }
-
-        function verify2FA() {
-            const inputs = ['code1', 'code2', 'code3', 'code4', 'code5', 'code6'];
-            let enteredCode = '';
-            
-            inputs.forEach(id => {
-                enteredCode += document.getElementById(id).value;
-            });
-            
-            if (enteredCode === state.twoFactorCode) {
-                showApp();
-                showToast('2FA doğrulaması başarılı!', 'success');
-            } else {
-                showToast('Hatalı kod! Lütfen tekrar deneyin.', 'error');
-            }
-        }
-
-        function resend2FA() {
-            send2FACode();
-            showToast('Yeni kod gönderildi', 'info');
-        }
-
-        // ============ ADMIN FUNCTIONS ============
-        function adminLogin(event) {
-            event.preventDefault();
-            const password = document.getElementById('adminPassword').value;
-            
-            if (password === 'anadolu2026') {
-                // Trigger 2FA
-                document.getElementById('loginScreen').classList.remove('active');
-                document.getElementById('twoFactorScreen').classList.add('active');
-                send2FACode();
-            } else {
-                showToast('Hatalı şifre!', 'error');
-            }
-        }
-
-        function toggleModule(index, enabled) {
-            modules[index].enabled = enabled;
-            showToast(`${modules[index].name} modülü ${enabled ? 'açıldı' : 'kapatıldı'}`, 'success');
-        }
-
-        function deleteModule(index) {
-            modules.splice(index, 1);
-            renderModules();
-            showToast('Modül silindi', 'success');
-        }
-
-        function addProduct(event) {
-            event.preventDefault();
-            const name = document.getElementById('productName').value;
-            const price = document.getElementById('productPrice').value;
-            const description = document.getElementById('productDescription').value;
-            
-            state.products.push({ name, price: parseFloat(price), description });
-            renderProducts();
-            closeModal('addProductModal');
-            showToast('Ürün eklendi', 'success');
-        }
-
-        function deleteProduct(index) {
-            state.products.splice(index, 1);
-            renderProducts();
-            showToast('Ürün silindi', 'success');
-        }
-
-        // ============ GEMINI AI FUNCTIONS ============
-        async function generateReport(type) {
-            const resultDiv = document.getElementById('reportResult');
-            resultDiv.innerHTML = '<p>Gemini AI rapor oluşturuyor...</p>';
-            
-            try {
-                const report = await window.generateGeminiReport(type);
-                resultDiv.innerHTML = `<p style="white-space: pre-wrap;">${report}</p>`;
-                showToast('Rapor oluşturuldu', 'success');
-            } catch (error) {
-                resultDiv.innerHTML = '<p style="color: var(--danger);">Rapor oluşturulamadı. Lütfen API anahtarını kontrol edin.</p>';
-                showToast('Rapor hatası', 'error');
-            }
         }
 
         // ============ AUTH FUNCTIONS ============
@@ -2009,12 +2002,14 @@
             document.getElementById('loginScreen').classList.remove('active');
             document.getElementById('twoFactorScreen').classList.remove('active');
             document.getElementById('appContainer').classList.add('active');
-            initializeApp();
+            renderExperts();
+            renderMarketplace();
+            renderConsultingPackages();
+            renderCoachingServices();
         }
 
         function logout() {
             state.isAuthenticated = false;
-            state.isAdmin = false;
             document.getElementById('appContainer').classList.remove('active');
             document.getElementById('loginScreen').classList.add('active');
             showToast('Çıkış yapıldı', 'info');
@@ -2055,7 +2050,7 @@
                 'marketplace': 'Marketplace',
                 'consulting': 'Danışmanlık',
                 'coaching': 'Koçluk',
-                'ai-cfo': 'AI CFO (Gemini)',
+                'ai-cfo': 'AI CFO',
                 'ai-reports': 'AI Raporlar',
                 'settings': 'Ayarlar',
                 'admin': 'Yönetim'
@@ -2114,6 +2109,46 @@
             showToast('Kullanıcı menüsü', 'info');
         }
 
+        function addTransaction(event) {
+            event.preventDefault();
+            closeModal('addTransactionModal');
+            showToast('İşlem başarıyla eklendi', 'success');
+        }
+
+        function addCustomer(event) {
+            event.preventDefault();
+            closeModal('addCustomerModal');
+            showToast('Müşteri başarıyla eklendi', 'success');
+        }
+
+        function send2FACode() {
+            const code = Math.floor(100000 + Math.random() * 900000).toString();
+            state.twoFactorCode = code;
+            console.log('2FA Code:', code);
+            showToast('2FA kodu gönderildi: ' + code, 'info');
+        }
+
+        function verify2FA() {
+            const inputs = ['code1', 'code2', 'code3', 'code4', 'code5', 'code6'];
+            let enteredCode = '';
+            
+            inputs.forEach(id => {
+                enteredCode += document.getElementById(id).value;
+            });
+            
+            if (enteredCode === state.twoFactorCode) {
+                showApp();
+                showToast('2FA doğrulaması başarılı!', 'success');
+            } else {
+                showToast('Hatalı kod! Lütfen tekrar deneyin.', 'error');
+            }
+        }
+
+        function resend2FA() {
+            send2FACode();
+            showToast('Yeni kod gönderildi', 'info');
+        }
+
         // ============ EVENT LISTENERS ============
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -2121,14 +2156,12 @@
             const password = document.getElementById('loginPassword').value;
             
             if (email && password) {
-                // Trigger 2FA
                 document.getElementById('loginScreen').classList.remove('active');
                 document.getElementById('twoFactorScreen').classList.add('active');
                 send2FACode();
             }
         });
 
-        // 2FA input auto-advance
         document.querySelectorAll('.2fa-input').forEach((input, index) => {
             input.addEventListener('input', function() {
                 if (this.value.length === 1 && index < 5) {
@@ -2149,41 +2182,12 @@
             }
         });
 
-        // ============ CHART INITIALIZATION ============
-        function initializeCharts() {
-            // Revenue Chart
-            const revenueCtx = document.getElementById('revenueChart');
-            if (revenueCtx) {
-                new Chart(revenueCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
-                        datasets: [{
-                            label: 'Gelir',
-                            data: [65000, 70000, 68000, 75000, 82000, 80000, 85000, 88000, 92000, 95000, 90000, 85000],
-                            borderColor: '#6366f1',
-                            backgroundColor: 'rgba(99, 102, 241, 0.1)',
-                            tension: 0.4,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } }
-                    }
-                });
-            }
-        }
-
-        // Initialize on load
         console.log('ANADOLU SUPER OS initialized');
-        console.log('Version: 3.0.0');
+        console.log('Version: 4.0.0 - Detailed Modules');
         console.log('Developer: CFO Müh. Orhan Boyraz');
         console.log('Contact: orhanboyraz0216@gmail.com');
         console.log('Phone: 05409666602');
         console.log('Location: Nilüfer-Bursa/Türkiye');
-        console.log('AI: Google Gemini API');
     </script>
 </body>
 </html>
