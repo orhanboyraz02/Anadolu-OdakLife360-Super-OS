@@ -18,11 +18,8 @@
         :root {
             --primary: #6366f1;
             --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
             --navy: #0f172a;
-            --navy-light: #1e293b;
             --gold: #f59e0b;
-            --gold-light: #fbbf24;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
@@ -45,1968 +42,556 @@
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--gray-100);
-            color: var(--gray-900);
-            line-height: 1.6;
-            overflow: hidden;
-            height: 100vh;
-        }
-        
-        .auth-container {
-            display: none;
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--primary-dark) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .auth-container.active { display: flex; }
-        
-        .auth-container::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-            animation: rotate 30s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .auth-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: var(--shadow-xl);
-            position: relative;
-            z-index: 1;
-            animation: slideUp 0.5s ease;
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .auth-logo { text-align: center; margin-bottom: 30px; }
-        
-        .auth-logo h1 {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .auth-logo p { color: var(--gray-500); margin-top: 5px; }
-        
-        .form-group { margin-bottom: 20px; }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--gray-700);
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--gray-200);
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-        
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            width: 100%;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-        }
-        
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            width: 100%;
-        }
-        
-        .btn-google {
-            background: white;
-            color: var(--gray-700);
-            border: 2px solid var(--gray-200);
-            width: 100%;
-        }
-        
-        .app-container {
-            display: none;
-            height: 100vh;
-            overflow: hidden;
-        }
-        
-        .app-container.active { display: flex; }
-        
-        .sidebar {
-            width: var(--sidebar-width);
-            background: var(--navy);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            z-index: 100;
-            transition: transform 0.3s;
-        }
-        
-        .sidebar-header {
-            padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-        
-        .sidebar-logo {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .sidebar-subtitle {
-            font-size: 12px;
-            color: var(--gray-400);
-            margin-top: 4px;
-        }
-        
-        .sidebar-nav {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px 0;
-        }
-        
-        .nav-section { margin-bottom: 30px; }
-        
-        .nav-section-title {
-            padding: 0 20px;
-            margin-bottom: 10px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gray-400);
-        }
-        
-        .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            color: var(--gray-300);
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            position: relative;
-        }
-        
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-        }
-        
-        .nav-item.active {
-            background: linear-gradient(90deg, rgba(99, 102, 241, 0.2) 0%, transparent 100%);
-            color: white;
-        }
-        
-        .nav-item.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--primary);
-        }
-        
-        .nav-item i { width: 24px; margin-right: 12px; font-size: 18px; }
-        .nav-item span { font-size: 14px; font-weight: 500; }
-        
-        .main-content {
-            flex: 1;
-            margin-left: var(--sidebar-width);
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-        
-        .header {
-            height: var(--header-height);
-            background: white;
-            border-bottom: 1px solid var(--gray-200);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 30px;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            z-index: 10;
-        }
-        
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--gray-600);
-        }
-        
-        .header-title { font-size: 20px; font-weight: 700; color: var(--gray-900); }
-        
-        .header-right { display: flex; align-items: center; gap: 20px; }
-        
-        .language-selector { display: flex; gap: 5px; }
-        
-        .lang-btn {
-            padding: 6px 12px;
-            border: 2px solid var(--gray-200);
-            background: white;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .lang-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .mode-toggle {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: var(--gray-600);
-            padding: 8px;
-        }
-        
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .content-area {
-            flex: 1;
-            overflow-y: auto;
-            padding: 30px;
-        }
-        
-        .page { display: none; }
-        
-        .page.active {
-            display: block;
-            animation: fadeIn 0.3s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-        
-        .card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        
-        .card-title { font-size: 18px; font-weight: 700; color: var(--gray-900); }
-        .card-subtitle { font-size: 14px; color: var(--gray-500); margin-top: 4px; }
-        
-        .score-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 24px;
-            font-weight: 700;
-            position: relative;
-        }
-        
-        .score-circle.excellent {
-            background: linear-gradient(135deg, #10b98120 0%, #10b98140 100%);
-            color: var(--success);
-            border: 3px solid var(--success);
-        }
-        
-        .score-circle.good {
-            background: linear-gradient(135deg, #6366f120 0%, #6366f140 100%);
-            color: var(--primary);
-            border: 3px solid var(--primary);
-        }
-        
-        .score-circle.warning {
-            background: linear-gradient(135deg, #f59e0b20 0%, #f59e0b40 100%);
-            color: var(--warning);
-            border: 3px solid var(--warning);
-        }
-        
-        .metric-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .metric-card {
-            background: var(--gray-50);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .metric-card:hover {
-            background: var(--gray-100);
-            transform: translateY(-2px);
-        }
-        
-        .metric-value { font-size: 28px; font-weight: 700; color: var(--gray-900); }
-        .metric-label { font-size: 14px; color: var(--gray-500); margin-top: 4px; }
-        
-        .metric-change {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-        
-        .metric-change.positive { background: #10b98120; color: var(--success); }
-        .metric-change.negative { background: #ef444420; color: var(--danger); }
-        
-        .chart-container {
-            position: relative;
-            height: 300px;
-            width: 100%;
-        }
-        
-        .ai-insights {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 24px;
-        }
-        
-        .insight-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .insight-item:hover { background: rgba(255, 255, 255, 0.2); }
-        
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .data-table th {
-            text-align: left;
-            padding: 12px 16px;
-            background: var(--gray-50);
-            font-weight: 600;
-            color: var(--gray-600);
-            border-bottom: 2px solid var(--gray-200);
-        }
-        
-        .data-table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--gray-200);
-        }
-        
-        .data-table tr:hover { background: var(--gray-50); }
-        
-        .status-badge {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-        }
-        
-        .status-active { background: #10b98120; color: var(--success); }
-        .status-pending { background: #f59e0b20; color: var(--warning); }
-        .status-inactive { background: #ef444420; color: var(--danger); }
-        
-        .form-container { max-width: 600px; }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .form-actions { display: flex; gap: 10px; margin-top: 20px; }
-        .btn-secondary { background: white; color: var(--gray-700); border: 2px solid var(--gray-200); }
-        .btn-danger { background: var(--danger); color: white; }
-        .btn-sm { padding: 6px 12px; font-size: 12px; }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal.active { display: flex; animation: fadeIn 0.3s; }
-        
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .modal-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--gray-500);
-        }
-        
-        .footer {
-            background: var(--navy);
-            color: white;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 10px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .footer-info { display: flex; gap: 20px; flex-wrap: wrap; }
-        
-        .footer-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-        }
-        
-        .footer-item i { color: var(--gold); }
-        
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 2000;
-        }
-        
-        .toast {
-            background: white;
-            border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 10px;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: slideIn 0.3s;
-            min-width: 300px;
-        }
-        
-        .toast.success { border-left: 4px solid var(--success); }
-        .toast.error { border-left: 4px solid var(--danger); }
-        .toast.warning { border-left: 4px solid var(--warning); }
-        
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .2fa-code { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
-        
-        .2fa-input {
-            width: 50px;
-            height: 50px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            border: 2px solid var(--gray-200);
-            border-radius: 10px;
-        }
-        
-        .2fa-input:focus { outline: none; border-color: var(--primary); }
-        
-        @media (max-width: 1024px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.open { transform: translateX(0); }
-            .main-content { margin-left: 0; }
-            .menu-toggle { display: block; }
-        }
-        
-        @media (max-width: 768px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
-            .metric-grid { grid-template-columns: 1fr; }
-            .form-grid { grid-template-columns: 1fr; }
-            .content-area { padding: 15px; }
-            .header { padding: 0 15px; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .footer-info { flex-direction: column; }
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:var(--gray-100); color:var(--gray-900); line-height:1.6; overflow:hidden; height:100vh; }
+        
+        .auth-container { display:none; height:100vh; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--navy) 0%,var(--primary-dark) 100%); position:relative; overflow:hidden; }
+        .auth-container.active { display:flex; }
+        .auth-container::before { content:''; position:absolute; width:200%; height:200%; background:radial-gradient(circle at 50% 50%,rgba(99,102,241,0.1) 0%,transparent 50%); animation:rotate 30s linear infinite; }
+        @keyframes rotate { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+        .auth-card { background:white; border-radius:20px; padding:40px; width:100%; max-width:450px; box-shadow:var(--shadow-xl); position:relative; z-index:1; animation:slideUp 0.5s ease; }
+        @keyframes slideUp { from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)} }
+        .auth-logo { text-align:center; margin-bottom:30px; }
+        .auth-logo h1 { font-size:28px; font-weight:800; background:linear-gradient(135deg,var(--primary) 0%,var(--gold) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .auth-logo p { color:var(--gray-500); margin-top:5px; }
+        .form-group { margin-bottom:20px; }
+        .form-group label { display:block; margin-bottom:8px; font-weight:500; color:var(--gray-700); }
+        .form-input { width:100%; padding:12px 16px; border:2px solid var(--gray-200); border-radius:10px; font-size:16px; transition:all 0.3s; font-family:inherit; }
+        .form-input:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(99,102,241,0.1); }
+        .btn { padding:12px 24px; border:none; border-radius:10px; font-size:16px; font-weight:600; cursor:pointer; transition:all 0.3s; font-family:inherit; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+        .btn-primary { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); color:white; width:100%; }
+        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 20px rgba(99,102,241,0.3); }
+        .btn-whatsapp { background:#25D366; color:white; width:100%; }
+        .btn-whatsapp:hover { background:#128C7E; }
+        .btn-google { background:white; color:var(--gray-700); border:2px solid var(--gray-200); width:100%; }
+        .btn-secondary { background:white; color:var(--gray-700); border:2px solid var(--gray-200); }
+        .btn-danger { background:var(--danger); color:white; }
+        .btn-sm { padding:6px 12px; font-size:12px; }
+        
+        .app-container { display:none; height:100vh; overflow:hidden; }
+        .app-container.active { display:flex; }
+        .sidebar { width:var(--sidebar-width); background:var(--navy); color:white; display:flex; flex-direction:column; position:fixed; height:100vh; left:0; top:0; z-index:100; transition:transform 0.3s; }
+        .sidebar-header { padding:20px; border-bottom:1px solid rgba(255,255,255,0.1); text-align:center; }
+        .sidebar-logo { font-size:24px; font-weight:800; background:linear-gradient(135deg,#fff 0%,var(--gold) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .sidebar-subtitle { font-size:12px; color:var(--gray-400); margin-top:4px; }
+        .sidebar-nav { flex:1; overflow-y:auto; padding:20px 0; }
+        .nav-section { margin-bottom:30px; }
+        .nav-section-title { padding:0 20px; margin-bottom:10px; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--gray-400); }
+        .nav-item { display:flex; align-items:center; padding:12px 20px; color:var(--gray-300); cursor:pointer; transition:all 0.3s; text-decoration:none; position:relative; }
+        .nav-item:hover { background:rgba(255,255,255,0.05); color:white; }
+        .nav-item.active { background:linear-gradient(90deg,rgba(99,102,241,0.2) 0%,transparent 100%); color:white; }
+        .nav-item.active::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--primary); }
+        .nav-item i { width:24px; margin-right:12px; font-size:18px; }
+        .nav-item span { font-size:14px; font-weight:500; }
+        .nav-badge { background:var(--primary); color:white; font-size:11px; padding:2px 8px; border-radius:10px; margin-left:auto; }
+        
+        .main-content { flex:1; margin-left:var(--sidebar-width); display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+        .header { height:var(--header-height); background:white; border-bottom:1px solid var(--gray-200); display:flex; align-items:center; justify-content:space-between; padding:0 30px; box-shadow:var(--shadow-sm); position:relative; z-index:10; }
+        .header-left { display:flex; align-items:center; gap:20px; }
+        .menu-toggle { display:none; background:none; border:none; font-size:24px; cursor:pointer; color:var(--gray-600); }
+        .header-title { font-size:20px; font-weight:700; }
+        .header-right { display:flex; align-items:center; gap:20px; }
+        .language-selector { display:flex; gap:5px; }
+        .lang-btn { padding:6px 12px; border:2px solid var(--gray-200); background:white; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600; }
+        .lang-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+        .mode-toggle { background:none; border:none; font-size:20px; cursor:pointer; color:var(--gray-600); }
+        .user-avatar { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--primary) 0%,var(--gold) 100%); display:flex; align-items:center; justify-content:center; color:white; font-weight:600; cursor:pointer; }
+        
+        .content-area { flex:1; overflow-y:auto; padding:30px; }
+        .page { display:none; }
+        .page.active { display:block; animation:fadeIn 0.3s; }
+        @keyframes fadeIn { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
+        
+        .dashboard-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+        .card { background:white; border-radius:15px; padding:24px; box-shadow:var(--shadow); transition:all 0.3s; }
+        .card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+        .card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+        .card-title { font-size:18px; font-weight:700; }
+        .card-subtitle { font-size:14px; color:var(--gray-500); }
+        .score-circle { width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px; font-size:24px; font-weight:700; }
+        .score-circle.excellent { background:linear-gradient(135deg,#10b98120,#10b98140); color:var(--success); border:3px solid var(--success); }
+        .score-circle.good { background:linear-gradient(135deg,#6366f120,#6366f140); color:var(--primary); border:3px solid var(--primary); }
+        .score-circle.warning { background:linear-gradient(135deg,#f59e0b20,#f59e0b40); color:var(--warning); border:3px solid var(--warning); }
+        .metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+        .metric-card { background:var(--gray-50); border-radius:12px; padding:20px; text-align:center; }
+        .metric-value { font-size:28px; font-weight:700; }
+        .metric-label { font-size:14px; color:var(--gray-500); }
+        .chart-container { position:relative; height:300px; width:100%; }
+        .ai-insights { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; border-radius:15px; padding:24px; }
+        .insight-item { background:rgba(255,255,255,0.1); border-radius:10px; padding:15px; margin-bottom:10px; }
+        .data-table { width:100%; border-collapse:collapse; }
+        .data-table th { text-align:left; padding:12px 16px; background:var(--gray-50); font-weight:600; color:var(--gray-600); border-bottom:2px solid var(--gray-200); }
+        .data-table td { padding:12px 16px; border-bottom:1px solid var(--gray-200); }
+        .data-table tr:hover { background:var(--gray-50); }
+        .status-badge { padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; }
+        .status-active { background:#10b98120; color:var(--success); }
+        .status-pending { background:#f59e0b20; color:var(--warning); }
+        .status-inactive { background:#ef444420; color:var(--danger); }
+        .form-container { max-width:600px; }
+        .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        
+        .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center; }
+        .modal.active { display:flex; animation:fadeIn 0.3s; }
+        .modal-content { background:white; border-radius:15px; padding:30px; max-width:500px; width:90%; max-height:90vh; overflow-y:auto; box-shadow:var(--shadow-xl); }
+        .modal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+        .modal-close { background:none; border:none; font-size:24px; cursor:pointer; color:var(--gray-500); }
+        
+        .footer { background:var(--navy); color:white; padding:20px; margin-top:30px; border-radius:10px; }
+        .footer-content { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+        .footer-info { display:flex; gap:20px; flex-wrap:wrap; }
+        .footer-item { display:flex; align-items:center; gap:8px; font-size:14px; }
+        .footer-item i { color:var(--gold); }
+        
+        .toast-container { position:fixed; top:20px; right:20px; z-index:2000; }
+        .toast { background:white; border-radius:10px; padding:16px; margin-bottom:10px; box-shadow:var(--shadow-lg); display:flex; align-items:center; gap:12px; animation:slideIn 0.3s; min-width:300px; }
+        .toast.success { border-left:4px solid var(--success); }
+        .toast.error { border-left:4px solid var(--danger); }
+        .toast.warning { border-left:4px solid var(--warning); }
+        @keyframes slideIn { from{transform:translateX(100%); opacity:0} to{transform:translateX(0); opacity:1} }
+        
+        .2fa-code { display:flex; gap:10px; justify-content:center; margin:20px 0; }
+        .2fa-input { width:50px; height:50px; text-align:center; font-size:24px; font-weight:700; border:2px solid var(--gray-200); border-radius:10px; }
+        .2fa-input:focus { outline:none; border-color:var(--primary); }
+        
+        @media (max-width:1024px) { .sidebar{transform:translateX(-100%)} .sidebar.open{transform:translateX(0)} .main-content{margin-left:0} .menu-toggle{display:block} }
+        @media (max-width:768px) { .dashboard-grid{grid-template-columns:1fr} .metric-grid{grid-template-columns:1fr} .form-grid{grid-template-columns:1fr} .content-area{padding:15px} .header{padding:0 15px} .footer-content{flex-direction:column; text-align:center} .footer-info{flex-direction:column} }
     </style>
 </head>
 <body>
-    <!-- Login Screen -->
-    <div class="auth-container active" id="loginScreen">
-        <div class="auth-card">
-            <div class="auth-logo">
-                <h1>ANADOLU SUPER OS</h1>
-                <p>Hayatınızı, paranızı ve işinizi tek bir akıllı sistemden yönetin</p>
-            </div>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" class="form-input" id="loginEmail" placeholder="ornek@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Şifre</label>
-                    <input type="password" class="form-input" id="loginPassword" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-sign-in-alt"></i> Giriş Yap
-                </button>
-            </form>
-            <div style="text-align: center; margin: 20px 0; color: var(--gray-400);">veya</div>
-            <button class="btn btn-google" onclick="loginWithGoogle()">
-                <i class="fab fa-google"></i> Google ile Devam Et
-            </button>
+
+<!-- LOGIN SCREEN -->
+<div class="auth-container active" id="loginScreen">
+    <div class="auth-card">
+        <div class="auth-logo">
+            <h1>ANADOLU SUPER OS</h1>
+            <p>Hayatınızı, paranızı ve işinizi tek bir akıllı sistemden yönetin</p>
         </div>
+        <form id="loginForm">
+            <div class="form-group"><label>Email</label><input type="email" class="form-input" id="loginEmail" required></div>
+            <div class="form-group"><label>Şifre</label><input type="password" class="form-input" id="loginPassword" required></div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Giriş Yap</button>
+        </form>
+        <div style="text-align:center; margin:20px 0; color:var(--gray-400)">veya</div>
+        <button class="btn btn-google" onclick="loginWithGoogle()"><i class="fab fa-google"></i> Google ile Devam Et</button>
+        <p style="text-align:center; margin-top:20px; color:var(--gray-600)">Hesabınız yok mu? <a href="#" onclick="showRegister()" style="color:var(--primary); font-weight:600;">Kayıt Ol</a></p>
+    </div>
+</div>
+
+<!-- REGISTER SCREEN -->
+<div class="auth-container" id="registerScreen">
+    <div class="auth-card">
+        <div class="auth-logo"><h1>ANADOLU SUPER OS</h1><p>Yeni hesap oluşturun</p></div>
+        <form id="registerForm">
+            <div class="form-grid">
+                <div class="form-group"><label>Ad</label><input type="text" class="form-input" id="regFirstName" required></div>
+                <div class="form-group"><label>Soyad</label><input type="text" class="form-input" id="regLastName" required></div>
+            </div>
+            <div class="form-group"><label>Email</label><input type="email" class="form-input" id="regEmail" required></div>
+            <div class="form-group"><label>Şifre</label><input type="password" class="form-input" id="regPassword" required></div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Kayıt Ol</button>
+        </form>
+        <p style="text-align:center; margin-top:20px;">Zaten hesabınız var mı? <a href="#" onclick="showLogin()" style="color:var(--primary); font-weight:600;">Giriş Yap</a></p>
+    </div>
+</div>
+
+<!-- 2FA SCREEN -->
+<div class="auth-container" id="twoFactorScreen">
+    <div class="auth-card">
+        <div class="auth-logo"><h1>İki Faktörlü Doğrulama</h1><p>6 haneli kodu girin</p></div>
+        <div class="2fa-code">
+            <input type="text" class="2fa-input" maxlength="1" id="c1"><input type="text" class="2fa-input" maxlength="1" id="c2"><input type="text" class="2fa-input" maxlength="1" id="c3"><input type="text" class="2fa-input" maxlength="1" id="c4"><input type="text" class="2fa-input" maxlength="1" id="c5"><input type="text" class="2fa-input" maxlength="1" id="c6">
+        </div>
+        <button class="btn btn-primary" onclick="verify2FA()"><i class="fas fa-shield-alt"></i> Doğrula</button>
+        <p style="text-align:center; margin-top:15px; font-size:14px;">Kod: <span id="2faCodeDisplay" style="font-weight:700; color:var(--primary);"></span></p>
+    </div>
+</div>
+
+<!-- MAIN APP -->
+<div class="app-container" id="appContainer">
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header"><div class="sidebar-logo">ANADOLU OS</div><div class="sidebar-subtitle">Life & Business Operating System</div></div>
+        <nav class="sidebar-nav">
+            <div class="nav-section"><div class="nav-section-title">Ana Menü</div>
+                <a class="nav-item active" onclick="showPage('dashboard')"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+            </div>
+            <div class="nav-section"><div class="nav-section-title">Hayatım</div>
+                <a class="nav-item" onclick="showPage('finance')"><i class="fas fa-wallet"></i><span>Finans</span></a>
+                <a class="nav-item" onclick="showPage('fire')"><i class="fas fa-fire"></i><span>FIRE</span></a>
+                <a class="nav-item" onclick="showPage('longevity')"><i class="fas fa-heartbeat"></i><span>Longevity</span></a>
+                <a class="nav-item" onclick="showPage('budget')"><i class="fas fa-piggy-bank"></i><span>Bütçe</span></a>
+                <a class="nav-item" onclick="showPage('portfolio')"><i class="fas fa-chart-pie"></i><span>Portföy</span></a>
+                <a class="nav-item" onclick="showPage('goals')"><i class="fas fa-bullseye"></i><span>Hedefler</span></a>
+            </div>
+            <div class="nav-section"><div class="nav-section-title">İşletmem</div>
+                <a class="nav-item" onclick="showPage('business')"><i class="fas fa-building"></i><span>İşletme</span></a>
+                <a class="nav-item" onclick="showPage('crm')"><i class="fas fa-users"></i><span>CRM</span></a>
+                <a class="nav-item" onclick="showPage('sales')"><i class="fas fa-chart-bar"></i><span>Satış</span></a>
+                <a class="nav-item" onclick="showPage('inventory')"><i class="fas fa-boxes"></i><span>Envanter</span></a>
+                <a class="nav-item" onclick="showPage('projects')"><i class="fas fa-project-diagram"></i><span>Projeler</span></a>
+            </div>
+            <div class="nav-section"><div class="nav-section-title">Hizmetler</div>
+                <a class="nav-item" onclick="showPage('experts')"><i class="fas fa-user-tie"></i><span>Uzmanlar</span></a>
+                <a class="nav-item" onclick="showPage('marketplace')"><i class="fas fa-store"></i><span>Marketplace</span></a>
+                <a class="nav-item" onclick="showPage('consulting')"><i class="fas fa-handshake"></i><span>Danışmanlık</span></a>
+                <a class="nav-item" onclick="showPage('coaching')"><i class="fas fa-graduation-cap"></i><span>Koçluk</span></a>
+            </div>
+            <div class="nav-section"><div class="nav-section-title">Akademi</div>
+                <a class="nav-item" onclick="showPage('academy')"><i class="fas fa-graduation-cap"></i><span>Kurslar</span></a>
+                <a class="nav-item" onclick="showPage('certificates')"><i class="fas fa-certificate"></i><span>Sertifikalar</span></a>
+            </div>
+            <div class="nav-section"><div class="nav-section-title">Yapay Zeka</div>
+                <a class="nav-item" onclick="showPage('ai-cfo')"><i class="fas fa-robot"></i><span>AI CFO</span></a>
+                <a class="nav-item" onclick="showPage('ai-ceo')"><i class="fas fa-brain"></i><span>AI CEO</span></a>
+                <a class="nav-item" onclick="showPage('ai-fire')"><i class="fas fa-fire"></i><span>AI FIRE</span></a>
+                <a class="nav-item" onclick="showPage('ai-longevity')"><i class="fas fa-dna"></i><span>AI Longevity</span></a>
+                <a class="nav-item" onclick="showPage('ai-reports')"><i class="fas fa-file-alt"></i><span>AI Raporlar</span></a>
+            </div>
+            <div class="nav-section"><div class="nav-section-title">Sistem</div>
+                <a class="nav-item" onclick="showPage('settings')"><i class="fas fa-cog"></i><span>Ayarlar</span></a>
+                <a class="nav-item" onclick="showPage('admin')"><i class="fas fa-shield-alt"></i><span>Yönetim</span></a>
+                <a class="nav-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Çıkış</span></a>
+            </div>
+        </nav>
     </div>
 
-    <!-- 2FA Screen -->
-    <div class="auth-container" id="twoFactorScreen">
-        <div class="auth-card">
-            <div class="auth-logo">
-                <h1>İki Faktörlü Doğrulama</h1>
-                <p>Telefonunuza gönderilen 6 haneli kodu girin</p>
+    <div class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                <h2 class="header-title" id="pageTitle">Dashboard</h2>
             </div>
-            <div class="2fa-code">
-                <input type="text" class="2fa-input" maxlength="1" id="code1">
-                <input type="text" class="2fa-input" maxlength="1" id="code2">
-                <input type="text" class="2fa-input" maxlength="1" id="code3">
-                <input type="text" class="2fa-input" maxlength="1" id="code4">
-                <input type="text" class="2fa-input" maxlength="1" id="code5">
-                <input type="text" class="2fa-input" maxlength="1" id="code6">
+            <div class="header-right">
+                <div class="language-selector"><button class="lang-btn active" onclick="changeLanguage('tr')">TR</button><button class="lang-btn" onclick="changeLanguage('en')">EN</button></div>
+                <button class="mode-toggle" onclick="toggleMode()"><i class="fas fa-moon" id="modeIcon"></i></button>
+                <div class="user-avatar" onclick="showUserMenu()">OB</div>
             </div>
-            <button class="btn btn-primary" onclick="verify2FA()">
-                <i class="fas fa-shield-alt"></i> Doğrula
-            </button>
-            <p style="text-align: center; margin-top: 15px; color: var(--gray-500); font-size: 14px;">
-                Kod almadınız mı? <a href="#" onclick="resend2FA()" style="color: var(--primary);">Tekrar Gönder</a>
-            </p>
-        </div>
-    </div>
+        </header>
 
-    <!-- Main App -->
-    <div class="app-container" id="appContainer">
-        <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-logo">ANADOLU OS</div>
-                <div class="sidebar-subtitle">Life & Business Operating System</div>
+        <div class="content-area">
+            <!-- DASHBOARD -->
+            <div class="page active" id="dashboard-page">
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header"><div><h3 class="card-title">Genel Durum</h3><p class="card-subtitle">Tüm modüllerin özeti</p></div></div>
+                        <div class="metric-grid">
+                            <div class="metric-card"><div class="score-circle excellent">82</div><div class="metric-label">Finansal</div></div>
+                            <div class="metric-card"><div class="score-circle good">76</div><div class="metric-label">İşletme</div></div>
+                            <div class="metric-card"><div class="score-circle excellent">84</div><div class="metric-label">Longevity</div></div>
+                            <div class="metric-card"><div class="score-circle warning">78</div><div class="metric-label">Üretkenlik</div></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">Finansal Özet</h3></div>
+                        <div class="metric-grid">
+                            <div class="metric-card"><div class="metric-value">₺1.25M</div><div class="metric-label">Net Değer</div></div>
+                            <div class="metric-card"><div class="metric-value">₺85K</div><div class="metric-label">Gelir</div></div>
+                            <div class="metric-card"><div class="metric-value">₺45K</div><div class="metric-label">Gider</div></div>
+                            <div class="metric-card"><div class="metric-value">47%</div><div class="metric-label">Tasarruf</div></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">FIRE</h3></div>
+                        <div style="margin:20px 0;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span>İlerleme</span><span>35%</span></div><div style="background:var(--gray-200);height:10px;border-radius:5px;"><div style="width:35%;background:linear-gradient(90deg,var(--primary),var(--gold));height:100%;border-radius:5px;"></div></div></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">İşletme</h3></div>
+                        <div class="metric-grid">
+                            <div class="metric-card"><div class="metric-value">₺450K</div><div class="metric-label">Gelir</div></div>
+                            <div class="metric-card"><div class="metric-value">₺150K</div><div class="metric-label">EBITDA</div></div>
+                            <div class="metric-card"><div class="metric-value">1250</div><div class="metric-label">Müşteri</div></div>
+                            <div class="metric-card"><div class="metric-value">4.2%</div><div class="metric-label">Dönüşüm</div></div>
+                        </div>
+                    </div>
+                    <div class="ai-insights">
+                        <div class="card-header"><h3 class="card-title" style="color:white">AI Önerileri</h3></div>
+                        <div class="insight-item"><i class="fas fa-exclamation-triangle" style="color:var(--warning)"></i> <strong>Giderleriniz %8 arttı</strong></div>
+                        <div class="insight-item"><i class="fas fa-lightbulb" style="color:var(--gold)"></i> <strong>FIRE için ₺5K daha yatırın</strong></div>
+                    </div>
+                </div>
             </div>
-            
-            <nav class="sidebar-nav">
-                <div class="nav-section">
-                    <div class="nav-section-title">Ana Menü</div>
-                    <a class="nav-item active" onclick="showPage('dashboard')">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Dashboard</span>
-                    </a>
+
+            <!-- FINANCE -->
+            <div class="page" id="finance-page">
+                <div style="display:flex;justify-content:space-between;margin-bottom:30px;"><div><h2 style="font-size:28px;font-weight:700">Finans Yönetimi</h2><p style="color:var(--gray-500)">Kapsamlı finansal analiz</p></div><button class="btn btn-primary" onclick="openModal('addTransactionModal')" style="width:auto"><i class="fas fa-plus"></i> İşlem</button></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">Gelir Detayı</h3><table class="data-table" style="margin-top:20px"><thead><tr><th>Kaynak</th><th>Aylık</th><th>Yıllık</th></tr></thead><tbody><tr><td>Maaş</td><td>₺60.000</td><td>₺720.000</td></tr><tr><td>Serbest</td><td>₺15.000</td><td>₺180.000</td></tr><tr><td>Kira</td><td>₺8.000</td><td>₺96.000</td></tr><tr><td>Temettü</td><td>₺2.000</td><td>₺24.000</td></tr></tbody></table></div>
+                    <div class="card"><h3 class="card-title">Gider Detayı</h3><table class="data-table" style="margin-top:20px"><thead><tr><th>Kategori</th><th>Aylık</th><th>Yıllık</th></tr></thead><tbody><tr><td>Konut</td><td>₺15.000</td><td>₺180.000</td></tr><tr><td>Gıda</td><td>₺5.000</td><td>₺60.000</td></tr><tr><td>Ulaşım</td><td>₺3.000</td><td>₺36.000</td></tr><tr><td>Sağlık</td><td>₺2.000</td><td>₺24.000</td></tr></tbody></table></div>
+                    <div class="card"><h3 class="card-title">Varlıklar</h3><table class="data-table" style="margin-top:20px"><thead><tr><th>Varlık</th><th>Değer</th></tr></thead><tbody><tr><td>Nakit</td><td>₺150.000</td></tr><tr><td>Banka</td><td>₺350.000</td></tr><tr><td>Altın</td><td>₺200.000</td></tr><tr><td>Hisse</td><td>₺350.000</td></tr><tr><td>Gayrimenkul</td><td>₺500.000</td></tr></tbody></table></div>
+                    <div class="card"><h3 class="card-title">Borçlar</h3><table class="data-table" style="margin-top:20px"><thead><tr><th>Borç</th><th>Tutar</th></tr></thead><tbody><tr><td>Mortgage</td><td>₺800.000</td></tr><tr><td>Araç</td><td>₺250.000</td></tr><tr><td>Kart</td><td>₺15.000</td></tr></tbody></table></div>
                 </div>
+            </div>
 
-                <div class="nav-section">
-                    <div class="nav-section-title">Hayatım</div>
-                    <a class="nav-item" onclick="showPage('finance')">
-                        <i class="fas fa-wallet"></i>
-                        <span>Finans</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('fire')">
-                        <i class="fas fa-fire"></i>
-                        <span>FIRE</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('longevity')">
-                        <i class="fas fa-heartbeat"></i>
-                        <span>Longevity</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('budget')">
-                        <i class="fas fa-piggy-bank"></i>
-                        <span>Bütçe</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('portfolio')">
-                        <i class="fas fa-chart-pie"></i>
-                        <span>Portföy</span>
-                    </a>
+            <!-- FIRE -->
+            <div class="page" id="fire-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">FIRE Hesaplayıcı</h2><p style="color:var(--gray-500)">Finansal Bağımsızlık</p></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">Parametreler</h3><div class="form-grid" style="margin-top:20px"><div class="form-group"><label>Yaş</label><input type="number" class="form-input" id="fireAge" value="30"></div><div class="form-group"><label>Emeklilik</label><input type="number" class="form-input" id="fireRetAge" value="55"></div><div class="form-group"><label>Yıllık Gelir</label><input type="number" class="form-input" id="fireInc" value="1020000"></div><div class="form-group"><label>Yıllık Gider</label><input type="number" class="form-input" id="fireExp" value="540000"></div><div class="form-group"><label>Net Değer</label><input type="number" class="form-input" id="fireNW" value="1250000"></div><div class="form-group"><label>Getiri %</label><input type="number" class="form-input" id="fireRet" value="7"></div></div><button class="btn btn-primary" style="margin-top:20px" onclick="calcFIRE()"><i class="fas fa-calculator"></i> Hesapla</button></div>
+                    <div class="card"><h3 class="card-title">Sonuçlar</h3><div class="metric-grid" style="margin-top:20px"><div class="metric-card"><div class="metric-value" id="fireNum">₺13.5M</div><div class="metric-label">FIRE No</div></div><div class="metric-card"><div class="metric-value" id="fireYr">2046</div><div class="metric-label">Yıl</div></div><div class="metric-card"><div class="metric-value" id="fireDur">20 yıl</div><div class="metric-label">Süre</div></div><div class="metric-card"><div class="metric-value" id="fireRate">47%</div><div class="metric-label">Tasarruf</div></div></div></div>
+                    <div class="card"><h3 class="card-title">Simülasyon</h3><div class="chart-container"><canvas id="fireChart"></canvas></div></div>
                 </div>
+            </div>
 
-                <div class="nav-section">
-                    <div class="nav-section-title">İşletmem</div>
-                    <a class="nav-item" onclick="showPage('business')">
-                        <i class="fas fa-building"></i>
-                        <span>İşletme</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('crm')">
-                        <i class="fas fa-users"></i>
-                        <span>CRM</span>
-                    </a>
+            <!-- LONGEVITY -->
+            <div class="page" id="longevity-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Longevity</h2><p style="color:var(--gray-500)">60 Biyobelirteç</p></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">Skor</h3><div style="text-align:center;padding:30px"><div class="score-circle excellent" style="width:120px;height:120px;font-size:36px">84</div><p style="margin-top:20px;font-weight:600">Çok İyi</p></div></div>
+                    <div class="card"><h3 class="card-title">Yaş Analizi</h3><div class="metric-grid" style="margin-top:20px"><div class="metric-card"><div class="metric-value">32</div><div class="metric-label">Biyolojik</div></div><div class="metric-card"><div class="metric-value">28</div><div class="metric-label">Epigenetik</div></div><div class="metric-card"><div class="metric-value">30</div><div class="metric-label">Metabolik</div></div><div class="metric-card"><div class="metric-value">30</div><div class="metric-label">Kronolojik</div></div></div></div>
+                    <div class="card"><h3 class="card-title">60 Biyobelirteç</h3><div style="max-height:400px;overflow-y:auto;margin-top:20px"><table class="data-table"><thead><tr><th>#</th><th>Belirteç</th><th>Değer</th><th>Ref</th><th>Durum</th></tr></thead><tbody id="bioTable"></tbody></table></div></div>
                 </div>
+            </div>
 
-                <div class="nav-section">
-                    <div class="nav-section-title">Hizmetler</div>
-                    <a class="nav-item" onclick="showPage('experts')">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Uzmanlar</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('marketplace')">
-                        <i class="fas fa-store"></i>
-                        <span>Marketplace</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('consulting')">
-                        <i class="fas fa-handshake"></i>
-                        <span>Danışmanlık</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('coaching')">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Koçluk</span>
-                    </a>
+            <!-- BUDGET -->
+            <div class="page" id="budget-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Bütçe</h2><p style="color:var(--gray-500)">8 Kalem</p></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">Gelirler (4)</h3><div id="budgetIncome"></div></div>
+                    <div class="card"><h3 class="card-title">Giderler (4)</h3><div id="budgetExpense"></div></div>
                 </div>
+            </div>
 
-                <div class="nav-section">
-                    <div class="nav-section-title">Yapay Zeka</div>
-                    <a class="nav-item" onclick="showPage('ai-cfo')">
-                        <i class="fas fa-robot"></i>
-                        <span>AI CFO</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('ai-fire')">
-                        <i class="fas fa-fire"></i>
-                        <span>AI FIRE</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('ai-longevity')">
-                        <i class="fas fa-dna"></i>
-                        <span>AI Longevity</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('ai-reports')">
-                        <i class="fas fa-file-alt"></i>
-                        <span>AI Raporlar</span>
-                    </a>
+            <!-- PORTFOLIO -->
+            <div class="page" id="portfolio-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Portföy</h2><p style="color:var(--gray-500)">10 Varlık</p></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">Dağılım</h3><div class="chart-container"><canvas id="portfolioChart"></canvas></div></div>
+                    <div class="card"><h3 class="card-title">Varlıklar</h3><div id="portfolioList"></div></div>
                 </div>
+            </div>
 
-                <div class="nav-section">
-                    <div class="nav-section-title">Sistem</div>
-                    <a class="nav-item" onclick="showPage('settings')">
-                        <i class="fas fa-cog"></i>
-                        <span>Ayarlar</span>
-                    </a>
-                    <a class="nav-item" onclick="showPage('admin')">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Yönetim</span>
-                    </a>
-                    <a class="nav-item" onclick="logout()">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Çıkış</span>
-                    </a>
+            <!-- GOALS -->
+            <div class="page" id="goals-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Hedefler</h2></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">FIRE</h3><div style="margin-top:15px"><div style="background:var(--gray-200);height:10px;border-radius:5px"><div style="width:35%;background:var(--primary);height:100%;border-radius:5px"></div></div><p style="margin-top:10px">₺1.25M / ₺13.5M</p></div></div>
+                    <div class="card"><h3 class="card-title">Acil Fon</h3><div style="margin-top:15px"><div style="background:var(--gray-200);height:10px;border-radius:5px"><div style="width:80%;background:var(--success);height:100%;border-radius:5px"></div></div><p style="margin-top:10px">₺240K / ₺300K</p></div></div>
                 </div>
-            </nav>
-        </div>
+            </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <header class="header">
-                <div class="header-left">
-                    <button class="menu-toggle" onclick="toggleSidebar()">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <h2 class="header-title" id="pageTitle">Dashboard</h2>
+            <!-- BUSINESS -->
+            <div class="page" id="business-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">İşletme</h2></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">Performans</h3><div class="metric-grid" style="margin-top:20px"><div class="metric-card"><div class="metric-value">₺450K</div><div class="metric-label">Gelir</div></div><div class="metric-card"><div class="metric-value">₺280K</div><div class="metric-label">Brüt</div></div><div class="metric-card"><div class="metric-value">₺150K</div><div class="metric-label">EBITDA</div></div><div class="metric-card"><div class="metric-value">₺95K</div><div class="metric-label">Nakit</div></div></div></div>
+                    <div class="card"><h3 class="card-title">KPI</h3><table class="data-table" style="margin-top:20px"><thead><tr><th>KPI</th><th>Değer</th></tr></thead><tbody><tr><td>Brüt Marj</td><td>62%</td></tr><tr><td>Net Marj</td><td>33%</td></tr><tr><td>Cari Oran</td><td>2.4</td></tr></tbody></table></div>
                 </div>
-                
-                <div class="header-right">
-                    <div class="language-selector">
-                        <button class="lang-btn active" onclick="changeLanguage('tr')">TR</button>
-                        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
-                    </div>
-                    
-                    <button class="mode-toggle" onclick="toggleMode()">
-                        <i class="fas fa-moon" id="modeIcon"></i>
-                    </button>
-                    
-                    <div class="user-avatar" onclick="showUserMenu()">
-                        OB
-                    </div>
+            </div>
+
+            <!-- CRM -->
+            <div class="page" id="crm-page">
+                <div style="display:flex;justify-content:space-between;margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">CRM</h2><button class="btn btn-primary" onclick="openModal('addCustomerModal')" style="width:auto"><i class="fas fa-plus"></i> Müşteri</button></div>
+                <div class="card"><h3 class="card-title">Müşteriler</h3><table class="data-table" style="margin-top:20px"><thead><tr><th>İsim</th><th>Şirket</th><th>Durum</th></tr></thead><tbody><tr><td>Ahmet Kaya</td><td>ABC</td><td><span class="status-badge status-active">Aktif</span></td></tr><tr><td>Mehmet Demir</td><td>XYZ</td><td><span class="status-badge status-pending">Pasif</span></td></tr></tbody></table></div>
+            </div>
+
+            <!-- SALES -->
+            <div class="page" id="sales-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Satış</h2></div>
+                <div class="card"><h3 class="card-title">Huni</h3><div class="metric-grid" style="margin-top:20px"><div class="metric-card"><div class="metric-value">120</div><div class="metric-label">Potansiyel</div></div><div class="metric-card"><div class="metric-value">45</div><div class="metric-label">Teklif</div></div><div class="metric-card"><div class="metric-value">30</div><div class="metric-label">Sipariş</div></div></div></div>
+            </div>
+
+            <!-- INVENTORY -->
+            <div class="page" id="inventory-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Envanter</h2></div>
+                <div class="card"><table class="data-table"><thead><tr><th>Ürün</th><th>Stok</th><th>Fiyat</th></tr></thead><tbody><tr><td>Zeytinyağı</td><td>250</td><td>₺180</td></tr><tr><td>Bal</td><td>45</td><td>₺250</td></tr></tbody></table></div>
+            </div>
+
+            <!-- PROJECTS -->
+            <div class="page" id="projects-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Projeler</h2></div>
+                <div class="dashboard-grid"><div class="card"><h4>Web Yenileme</h4><div style="background:var(--gray-200);height:8px;border-radius:4px;margin-top:10px"><div style="width:65%;background:var(--primary);height:100%;border-radius:4px"></div></div></div><div class="card"><h4>Mobil Uygulama</h4><div style="background:var(--gray-200);height:8px;border-radius:4px;margin-top:10px"><div style="width:20%;background:var(--gold);height:100%;border-radius:4px"></div></div></div></div>
+            </div>
+
+            <!-- EXPERTS -->
+            <div class="page" id="experts-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Uzmanlar</h2><p style="color:var(--gray-500)">12 Uzmanlık</p></div>
+                <div class="dashboard-grid" id="expertsGrid"></div>
+            </div>
+
+            <!-- MARKETPLACE -->
+            <div class="page" id="marketplace-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Marketplace</h2><p style="color:var(--gray-500)">12 Ürün</p></div>
+                <div class="dashboard-grid" id="marketplaceGrid"></div>
+            </div>
+
+            <!-- CONSULTING -->
+            <div class="page" id="consulting-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Danışmanlık</h2><p style="color:var(--gray-500)">4 Paket</p></div>
+                <div class="dashboard-grid" id="consultingGrid"></div>
+            </div>
+
+            <!-- COACHING -->
+            <div class="page" id="coaching-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Koçluk</h2></div>
+                <div class="dashboard-grid" id="coachingGrid"></div>
+            </div>
+
+            <!-- ACADEMY -->
+            <div class="page" id="academy-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Akademi</h2></div>
+                <div class="dashboard-grid"><div class="card"><h4>FIRE University</h4><button class="btn btn-primary" style="margin-top:15px">Kayıt</button></div><div class="card"><h4>Business Academy</h4><button class="btn btn-primary" style="margin-top:15px">Kayıt</button></div></div>
+            </div>
+
+            <!-- CERTIFICATES -->
+            <div class="page" id="certificates-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Sertifikalar</h2></div>
+                <div class="dashboard-grid"><div class="card"><i class="fas fa-certificate" style="font-size:48px;color:var(--gold)"></i><h4 style="margin-top:10px">FIRE Sertifikası</h4></div></div>
+            </div>
+
+            <!-- AI CFO -->
+            <div class="page" id="ai-cfo-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">AI CFO</h2></div>
+                <div class="dashboard-grid"><div class="card"><h3 class="card-title">Analiz</h3><div class="ai-insights" style="margin-top:20px"><div class="insight-item"><i class="fas fa-chart-line"></i> Nakit akışı pozitif</div><div class="insight-item"><i class="fas fa-exclamation-triangle"></i> Borç oranı %35</div></div></div><div class="card"><h3 class="card-title">Sohbet</h3><div id="aiChat" style="height:250px;overflow-y:auto;margin-bottom:15px"></div><div style="display:flex;gap:10px"><input type="text" class="form-input" id="aiInput" placeholder="Sorunuz..."><button class="btn btn-primary" onclick="sendAI()" style="width:auto"><i class="fas fa-paper-plane"></i></button></div></div></div>
+            </div>
+
+            <!-- AI CEO -->
+            <div class="page" id="ai-ceo-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">AI CEO</h2></div>
+                <div class="card"><div class="ai-insights"><div class="insight-item"><i class="fas fa-chart-bar"></i> Büyüme %22</div><div class="insight-item"><i class="fas fa-users"></i> Memnuniyet %85</div></div></div>
+            </div>
+
+            <!-- AI FIRE -->
+            <div class="page" id="ai-fire-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">AI FIRE</h2></div>
+                <div class="card"><div class="ai-insights"><div class="insight-item"><i class="fas fa-fire"></i> FIRE: ₺13.5M, İlerleme %9.3</div><div class="insight-item"><i class="fas fa-chart-line"></i> ₺5K ek tasarruf = 3 yıl erken</div></div></div>
+            </div>
+
+            <!-- AI LONGEVITY -->
+            <div class="page" id="ai-longevity-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">AI Longevity</h2></div>
+                <div class="card"><div class="ai-insights"><div class="insight-item"><i class="fas fa-heart"></i> Kardiyo: +5 puan</div><div class="insight-item"><i class="fas fa-bed"></i> Uyku: 7-8 saat</div></div></div>
+            </div>
+
+            <!-- AI REPORTS -->
+            <div class="page" id="ai-reports-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">AI Raporlar</h2></div>
+                <div class="dashboard-grid"><div class="card"><h3 class="card-title">Raporlar</h3><button class="btn btn-primary" style="margin-bottom:10px" onclick="genReport('financial')">Finansal</button><button class="btn btn-primary" style="margin-bottom:10px" onclick="genReport('fire')">FIRE</button><button class="btn btn-primary" style="margin-bottom:10px" onclick="genReport('longevity')">Longevity</button><button class="btn btn-primary" onclick="genReport('business')">İşletme</button></div><div class="card"><h3 class="card-title">Sonuç</h3><div id="reportResult"></div></div></div>
+            </div>
+
+            <!-- SETTINGS -->
+            <div class="page" id="settings-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Ayarlar</h2></div>
+                <div class="dashboard-grid">
+                    <div class="card"><h3 class="card-title">Profil</h3><div class="form-grid" style="margin-top:20px"><div class="form-group"><label>Ad</label><input type="text" class="form-input" value="Orhan"></div><div class="form-group"><label>Soyad</label><input type="text" class="form-input" value="Boyraz"></div></div></div>
+                    <div class="card"><h3 class="card-title">Paketler</h3><div id="packageList"></div></div>
                 </div>
-            </header>
+            </div>
 
-            <div class="content-area">
-                <!-- ============ DASHBOARD ============ -->
-                <div class="page active" id="dashboard-page">
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Genel Durum</h3>
-                            </div>
-                            <div class="metric-grid">
-                                <div class="metric-card">
-                                    <div class="score-circle excellent">82</div>
-                                    <div class="metric-label">Finansal Sağlık</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="score-circle good">76</div>
-                                    <div class="metric-label">İşletme Sağlığı</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="score-circle excellent">84</div>
-                                    <div class="metric-label">Longevity</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="score-circle warning">78</div>
-                                    <div class="metric-label">Üretkenlik</div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- ADMIN -->
+            <div class="page" id="admin-page">
+                <div style="margin-bottom:30px"><h2 style="font-size:28px;font-weight:700">Yönetim</h2><p style="color:var(--gray-500)">2FA Korumalı</p></div>
+                <div class="card" id="adminLogin" style="max-width:400px;margin:0 auto"><h3>Admin Giriş</h3><form onsubmit="adminLogin(event)" style="margin-top:20px"><div class="form-group"><label>Şifre</label><input type="password" class="form-input" id="adminPassword"></div><button class="btn btn-primary">Giriş</button></form></div>
+                <div id="adminContent" style="display:none"><div class="dashboard-grid"><div class="card"><h3>Modüller</h3><div id="moduleList"></div></div><div class="card"><h3>Ürünler</h3><button class="btn btn-primary" onclick="openModal('addProductModal')" style="width:auto;margin-bottom:15px">+ Ürün</button><div id="adminProducts"></div></div></div></div>
+            </div>
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Finansal Özet</h3>
-                            </div>
-                            <div class="metric-grid">
-                                <div class="metric-card">
-                                    <div class="metric-value">₺1.250.000</div>
-                                    <div class="metric-label">Net Değer</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">₺85.000</div>
-                                    <div class="metric-label">Aylık Gelir</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">₺45.000</div>
-                                    <div class="metric-label">Aylık Gider</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">47%</div>
-                                    <div class="metric-label">Tasarruf</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="ai-insights">
-                            <div class="card-header">
-                                <h3 class="card-title" style="color: white;">AI Önerileri</h3>
-                            </div>
-                            <div class="insight-item">
-                                <i class="fas fa-exclamation-triangle" style="color: var(--warning);"></i>
-                                <strong>Giderleriniz bu ay %8 arttı.</strong>
-                            </div>
-                            <div class="insight-item">
-                                <i class="fas fa-lightbulb" style="color: var(--gold-light);"></i>
-                                <strong>FIRE hedefinize ulaşmak için</strong>
-                            </div>
-                        </div>
+            <!-- FOOTER -->
+            <div class="footer" style="margin-top:50px">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <div class="footer-item"><i class="fas fa-user"></i><span>CFO Müh. Orhan Boyraz</span></div>
+                        <div class="footer-item"><i class="fas fa-phone"></i><span>05409666602</span></div>
+                        <div class="footer-item"><i class="fas fa-map-marker-alt"></i><span>Nilüfer-Bursa/Türkiye</span></div>
+                        <div class="footer-item"><i class="fas fa-envelope"></i><span>orhanboyraz0216@gmail.com</span></div>
                     </div>
-                </div>
-
-                <!-- ============ FIRE - DETAILED ============ -->
-                <div class="page" id="fire-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">FIRE Hesaplayıcı</h2>
-                        <p style="color: var(--gray-500);">Finansal Bağımsızlık ve Erken Emeklilik - Detaylı Analiz</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <!-- FIRE Parametreleri -->
-                        <div class="card">
-                            <h3 class="card-title">FIRE Parametreleri</h3>
-                            <div class="form-container" style="margin-top: 20px;">
-                                <div class="form-grid">
-                                    <div class="form-group">
-                                        <label>Mevcut Yaş</label>
-                                        <input type="number" class="form-input" id="fireAge" value="30">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Emeklilik Yaşı</label>
-                                        <input type="number" class="form-input" id="fireRetirementAge" value="55">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Yıllık Gelir (₺)</label>
-                                        <input type="number" class="form-input" id="fireIncome" value="1020000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Yıllık Gider (₺)</label>
-                                        <input type="number" class="form-input" id="fireExpenses" value="540000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Mevcut Net Değer (₺)</label>
-                                        <input type="number" class="form-input" id="fireNetWorth" value="1250000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Yatırım Getirisi (%)</label>
-                                        <input type="number" class="form-input" id="fireReturn" value="7">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Enflasyon (%)</label>
-                                        <input type="number" class="form-input" id="fireInflation" value="3">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Yaşam Beklentisi</label>
-                                        <input type="number" class="form-input" id="fireLifeExpectancy" value="90">
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" style="margin-top: 20px;" onclick="calculateFIRE()">
-                                    <i class="fas fa-calculator"></i> Hesapla
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- FIRE Sonuçları -->
-                        <div class="card">
-                            <h3 class="card-title">FIRE Sonuçları</h3>
-                            <div id="fireResults" style="margin-top: 20px;">
-                                <div class="metric-grid">
-                                    <div class="metric-card">
-                                        <div class="metric-value" id="fireNumberResult">₺13.500.000</div>
-                                        <div class="metric-label">FIRE Numarası</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" id="fireYearResult">2046</div>
-                                        <div class="metric-label">FIRE Yılı</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" id="fireDurationResult">20 yıl</div>
-                                        <div class="metric-label">Kalan Süre</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" id="fireSavingsRate">47%</div>
-                                        <div class="metric-label">Tasarruf Oranı</div>
-                                    </div>
-                                </div>
-
-                                <div class="metric-grid" style="margin-top: 20px;">
-                                    <div class="metric-card">
-                                        <div class="metric-value" style="font-size: 20px;">₺9.450.000</div>
-                                        <div class="metric-label">Lean FIRE</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" style="font-size: 20px;">₺13.500.000</div>
-                                        <div class="metric-label">Regular FIRE</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" style="font-size: 20px;">₺17.550.000</div>
-                                        <div class="metric-label">Fat FIRE</div>
-                                    </div>
-                                    <div class="metric-card">
-                                        <div class="metric-value" style="font-size: 20px;">₺6.750.000</div>
-                                        <div class="metric-label">Barista FIRE</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- FIRE Simülasyonu -->
-                        <div class="card">
-                            <h3 class="card-title">FIRE Simülasyonu</h3>
-                            <div class="chart-container">
-                                <canvas id="fireChart"></canvas>
-                            </div>
-                        </div>
-
-                        <!-- Yıllık Projeksiyon -->
-                        <div class="card">
-                            <h3 class="card-title">Yıllık Projeksiyon</h3>
-                            <div style="overflow-x: auto; margin-top: 20px; max-height: 400px; overflow-y: auto;">
-                                <table class="data-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Yıl</th>
-                                            <th>Yaş</th>
-                                            <th>Portföy</th>
-                                            <th>Yıllık Gelir</th>
-                                            <th>Yıllık Gider</th>
-                                            <th>Tasarruf</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="fireProjectionTable"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============ LONGEVITY - DETAILED ============ -->
-                <div class="page" id="longevity-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">Longevity & Sağlık</h2>
-                        <p style="color: var(--gray-500);">60 Biyobelirteç - Detaylı Analiz</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <!-- Longevity Skoru -->
-                        <div class="card">
-                            <h3 class="card-title">Longevity Skoru</h3>
-                            <div style="text-align: center; padding: 30px;">
-                                <div class="score-circle excellent" style="width: 120px; height: 120px; font-size: 36px;">84</div>
-                                <p style="margin-top: 20px; font-weight: 600;">Çok İyi</p>
-                            </div>
-                            <div class="metric-grid" style="margin-top: 20px;">
-                                <div class="metric-card">
-                                    <div class="metric-value">32</div>
-                                    <div class="metric-label">Biyolojik Yaş</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">28</div>
-                                    <div class="metric-label">Epigenetik Yaş</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">30</div>
-                                    <div class="metric-label">Metabolik Yaş</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">30</div>
-                                    <div class="metric-label">Kronolojik Yaş</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Kategori Skorları -->
-                        <div class="card">
-                            <h3 class="card-title">Kategori Skorları</h3>
-                            <div style="margin-top: 20px;">
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                        <span>Metabolik Sağlık</span>
-                                        <span>85/100</span>
-                                    </div>
-                                    <div style="background: var(--gray-200); height: 10px; border-radius: 5px;">
-                                        <div style="width: 85%; background: var(--success); height: 100%; border-radius: 5px;"></div>
-                                    </div>
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                        <span>Kardiyovasküler</span>
-                                        <span>80/100</span>
-                                    </div>
-                                    <div style="background: var(--gray-200); height: 10px; border-radius: 5px;">
-                                        <div style="width: 80%; background: var(--success); height: 100%; border-radius: 5px;"></div>
-                                    </div>
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                        <span>Fitness</span>
-                                        <span>75/100</span>
-                                    </div>
-                                    <div style="background: var(--gray-200); height: 10px; border-radius: 5px;">
-                                        <div style="width: 75%; background: var(--primary); height: 100%; border-radius: 5px;"></div>
-                                    </div>
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                        <span>Uyku Kalitesi</span>
-                                        <span>70/100</span>
-                                    </div>
-                                    <div style="background: var(--gray-200); height: 10px; border-radius: 5px;">
-                                        <div style="width: 70%; background: var(--warning); height: 100%; border-radius: 5px;"></div>
-                                    </div>
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                        <span>Beslenme</span>
-                                        <span>82/100</span>
-                                    </div>
-                                    <div style="background: var(--gray-200); height: 10px; border-radius: 5px;">
-                                        <div style="width: 82%; background: var(--success); height: 100%; border-radius: 5px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 60 Biyobelirteç -->
-                        <div class="card">
-                            <h3 class="card-title">60 Biyobelirteç Paneli</h3>
-                            <div style="overflow-x: auto; margin-top: 20px; max-height: 500px; overflow-y: auto;">
-                                <table class="data-table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Biyobelirteç</th>
-                                            <th>Değer</th>
-                                            <th>Referans</th>
-                                            <th>Durum</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="biomarkersTable"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============ BUDGET - DETAILED ============ -->
-                <div class="page" id="budget-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">Bütçe Yönetimi</h2>
-                        <p style="color: var(--gray-500);">8 Gelir-Gider Kalemi - Detaylı Analiz</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">Gelir Kalemleri (4)</h3>
-                            <div id="incomeItems" style="margin-top: 20px;"></div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Gider Kalemleri (4)</h3>
-                            <div id="expenseItems" style="margin-top: 20px;"></div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Bütçe Grafiği</h3>
-                            <div class="chart-container">
-                                <canvas id="budgetChart"></canvas>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Bütçe Özeti</h3>
-                            <div class="metric-grid" style="margin-top: 20px;">
-                                <div class="metric-card">
-                                    <div class="metric-value">₺111.000</div>
-                                    <div class="metric-label">Toplam Gelir</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">₺25.000</div>
-                                    <div class="metric-label">Toplam Gider</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">₺86.000</div>
-                                    <div class="metric-label">Net Tasarruf</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">77%</div>
-                                    <div class="metric-label">Tasarruf Oranı</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============ PORTFOLIO - DETAILED ============ -->
-                <div class="page" id="portfolio-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">Yatırım Portföyü</h2>
-                        <p style="color: var(--gray-500);">10 Varlık Sınıfı - Detaylı Analiz</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">Portföy Dağılımı</h3>
-                            <div class="chart-container">
-                                <canvas id="portfolioChart"></canvas>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Varlıklar (10)</h3>
-                            <div id="portfolioAssets" style="margin-top: 20px;"></div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Portföy Özeti</h3>
-                            <div class="metric-grid" style="margin-top: 20px;">
-                                <div class="metric-card">
-                                    <div class="metric-value">₺1.250.000</div>
-                                    <div class="metric-label">Toplam Değer</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">₺18.750</div>
-                                    <div class="metric-label">Aylık Getiri</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">14.2%</div>
-                                    <div class="metric-label">Yıllık Getiri</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">₺225.000</div>
-                                    <div class="metric-label">Yıllık Kazanç</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============ AI CFO - DETAILED ============ -->
-                <div class="page" id="ai-cfo-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">AI CFO</h2>
-                        <p style="color: var(--gray-500);">Yapay Zeka Destekli Finansal Danışman</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">Finansal Analiz</h3>
-                            <div class="ai-insights" style="margin-top: 20px;">
-                                <div class="insight-item">
-                                    <i class="fas fa-chart-line"></i>
-                                    <strong>Nakit Akışı Analizi</strong>
-                                    <p>Nakit akışınız son 3 aydır pozitif. Bu ay %15 artış gösterdi.</p>
-                                </div>
-                                <div class="insight-item">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    <strong>Risk Uyarısı</strong>
-                                    <p>Borç/gelir oranınız %35. Bu oran %40'ı aşarsa riskli bölgeye girersiniz.</p>
-                                </div>
-                                <div class="insight-item">
-                                    <i class="fas fa-lightbulb"></i>
-                                    <strong>Fırsat</strong>
-                                    <p>Yatırım getirilerinizi %2 artırarak FIRE hedefinize 2 yıl erken ulaşabilirsiniz.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 class="card-title">AI CFO Sohbet</h3>
-                            <div style="height: 300px; overflow-y: auto; margin-bottom: 20px; padding: 15px; background: var(--gray-50); border-radius: 10px;" id="aiChatMessages">
-                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                                    <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white;">
-                                        <i class="fas fa-robot" style="font-size: 12px;"></i>
-                                    </div>
-                                    <div style="background: white; padding: 10px 15px; border-radius: 10px;">Merhaba! Ben AI CFO'nuz.</div>
-                                </div>
-                            </div>
-                            <div style="display: flex; gap: 10px;">
-                                <input type="text" class="form-input" placeholder="Sorunuzu yazın..." id="aiChatInput">
-                                <button class="btn btn-primary" onclick="sendAIMessage()" style="width: auto;">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============ AI FIRE - DETAILED ============ -->
-                <div class="page" id="ai-fire-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">AI FIRE Danışmanı</h2>
-                        <p style="color: var(--gray-500);">FIRE hedefinize ulaşmanız için AI destekli stratejiler</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">AI FIRE Analizi</h3>
-                            <div class="ai-insights" style="margin-top: 20px;">
-                                <div class="insight-item">
-                                    <i class="fas fa-fire"></i>
-                                    <strong>FIRE Hedefi</strong>
-                                    <p>FIRE numaranız: ₺13.500.000. Mevcut ilerleme: %9.3.</p>
-                                </div>
-                                <div class="insight-item">
-                                    <i class="fas fa-chart-line"></i>
-                                    <strong>Optimizasyon Önerisi</strong>
-                                    <p>Aylık tasarrufunuzu ₺5.000 artırırsanız FIRE süreniz 3 yıl kısalır.</p>
-                                </div>
-                                <div class="insight-item">
-                                    <i class="fas fa-piggy-bank"></i>
-                                    <strong>Yatırım Stratejisi</strong>
-                                    <p>Portföyünüzde hisse senedi oranını %60'a çıkararak getiriyi artırabilirsiniz.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 class="card-title">FIRE Stratejileri</h3>
-                            <div style="margin-top: 20px;">
-                                <table class="data-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Strateji</th>
-                                            <th>Etki</th>
-                                            <th>Süre</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tasarrufu %10 artır</td>
-                                            <td>FIRE süresi -3 yıl</td>
-                                            <td>Hemen</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ek gelir kaynağı</td>
-                                            <td>FIRE süresi -5 yıl</td>
-                                            <td>6 ay</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Yatırım getirisini artır</td>
-                                            <td>FIRE süresi -4 yıl</td>
-                                            <td>1 yıl</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============ AI LONGEVITY - DETAILED ============ -->
-                <div class="page" id="ai-longevity-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">AI Longevity Danışmanı</h2>
-                        <p style="color: var(--gray-500);">Sağlıklı yaşam için AI destekli öneriler</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">AI Longevity Analizi</h3>
-                            <div class="ai-insights" style="margin-top: 20px;">
-                                <div class="insight-item">
-                                    <i class="fas fa-heart"></i>
-                                    <strong>Kardiyovasküler</strong>
-                                    <p>Skorunuz iyi. Haftada 3 kez kardiyo egzersizi ile daha da iyileşebilir.</p>
-                                </div>
-                                <div class="insight-item">
-                                    <i class="fas fa-apple-alt"></i>
-                                    <strong>Beslenme Önerisi</strong>
-                                    <p>Omega-3 alımınız düşük. Haftada 2 kez balık tüketin.</p>
-                                </div>
-                                <div class="insight-item">
-                                    <i class="fas fa-bed"></i>
-                                    <strong>Uyku</strong>
-                                    <p>Ortalama 6.5 saat. 7-8 saate çıkarmanız longevity skorunuzu artırır.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 class="card-title">Öneriler</h3>
-                            <div style="margin-top: 20px;">
-                                <table class="data-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Öneri</th>
-                                            <th>Etki</th>
-                                            <th>Öncelik</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Uyku süresini artır</td>
-                                            <td>Longevity +5 puan</td>
-                                            <td><span class="status-badge status-active">Yüksek</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Omega-3 takviyesi</td>
-                                            <td>Kardiyovasküler +3 puan</td>
-                                            <td><span class="status-badge status-pending">Orta</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Günlük 10.000 adım</td>
-                                            <td>Metabolik +4 puan</td>
-                                            <td><span class="status-badge status-active">Yüksek</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============ AI RAPORLAR - DETAILED ============ -->
-                <div class="page" id="ai-reports-page">
-                    <div style="margin-bottom: 30px;">
-                        <h2 style="font-size: 28px; font-weight: 700;">AI Raporlar</h2>
-                        <p style="color: var(--gray-500);">Kapsamlı AI destekli raporlar</p>
-                    </div>
-
-                    <div class="dashboard-grid">
-                        <div class="card">
-                            <h3 class="card-title">Rapor Türleri</h3>
-                            <div style="margin-top: 20px;">
-                                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="generateReport('financial')">
-                                    <i class="fas fa-chart-line"></i> Finansal Rapor
-                                </button>
-                                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="generateReport('fire')">
-                                    <i class="fas fa-fire"></i> FIRE Raporu
-                                </button>
-                                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="generateReport('longevity')">
-                                    <i class="fas fa-heartbeat"></i> Longevity Raporu
-                                </button>
-                                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="generateReport('business')">
-                                    <i class="fas fa-building"></i> İşletme Raporu
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Rapor Sonucu</h3>
-                            <div id="reportResult" style="margin-top: 20px;">
-                                <p style="color: var(--gray-500);">Rapor oluşturmak için bir tür seçin</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer -->
-                <div class="footer" style="margin-top: 50px;">
-                    <div class="footer-content">
-                        <div class="footer-info">
-                            <div class="footer-item">
-                                <i class="fas fa-user"></i>
-                                <span>CFO Müh. Orhan Boyraz</span>
-                            </div>
-                            <div class="footer-item">
-                                <i class="fas fa-phone"></i>
-                                <span>05409666602</span>
-                            </div>
-                            <div class="footer-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Nilüfer-Bursa/Türkiye</span>
-                            </div>
-                            <div class="footer-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>orhanboyraz0216@gmail.com</span>
-                            </div>
-                        </div>
-                        <div>
-                            <span style="font-size: 12px; color: var(--gray-400);">© 2026 ANADOLU SUPER OS</span>
-                        </div>
-                    </div>
+                    <div><span style="font-size:12px;color:var(--gray-400)">© 2026 ANADOLU SUPER OS</span></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Toast Container -->
-    <div class="toast-container" id="toastContainer"></div>
+<!-- MODALS -->
+<div class="modal" id="addTransactionModal"><div class="modal-content"><div class="modal-header"><h3>İşlem</h3><button class="modal-close" onclick="closeModal('addTransactionModal')">&times;</button></div><form onsubmit="event.preventDefault();closeModal('addTransactionModal');showToast('Eklendi','success')"><div class="form-group"><label>Tutar</label><input type="number" class="form-input"></div><button class="btn btn-primary">Kaydet</button></form></div></div>
+<div class="modal" id="addCustomerModal"><div class="modal-content"><div class="modal-header"><h3>Müşteri</h3><button class="modal-close" onclick="closeModal('addCustomerModal')">&times;</button></div><form onsubmit="event.preventDefault();closeModal('addCustomerModal');showToast('Eklendi','success')"><div class="form-group"><label>İsim</label><input type="text" class="form-input"></div><button class="btn btn-primary">Kaydet</button></form></div></div>
+<div class="modal" id="addProductModal"><div class="modal-content"><div class="modal-header"><h3>Ürün</h3><button class="modal-close" onclick="closeModal('addProductModal')">&times;</button></div><form onsubmit="addProduct(event)"><div class="form-group"><label>Ad</label><input type="text" class="form-input" id="prodName" required></div><div class="form-group"><label>Fiyat</label><input type="number" class="form-input" id="prodPrice" required></div><button class="btn btn-primary">Ekle</button></form></div></div>
 
-    <script>
-        // ============ GLOBAL STATE ============
-        const state = {
-            currentPage: 'dashboard',
-            isAuthenticated: false,
-            user: null,
-            language: 'tr',
-            darkMode: false,
-            isAdmin: false,
-            twoFactorCode: '',
-        };
+<div class="toast-container" id="toastContainer"></div>
 
-        // ============ 60 BIOMARKERS ============
-        const biomarkers = [
-            { name: 'Kan Şekeri (Açlık)', value: 92, unit: 'mg/dL', min: 70, max: 100 },
-            { name: 'HbA1c', value: 5.4, unit: '%', min: 4.0, max: 5.6 },
-            { name: 'Total Kolesterol', value: 185, unit: 'mg/dL', min: 125, max: 200 },
-            { name: 'HDL Kolesterol', value: 55, unit: 'mg/dL', min: 40, max: 60 },
-            { name: 'LDL Kolesterol', value: 130, unit: 'mg/dL', min: 0, max: 100 },
-            { name: 'Trigliserit', value: 120, unit: 'mg/dL', min: 0, max: 150 },
-            { name: 'Vitamin D (25-OH)', value: 25, unit: 'ng/mL', min: 30, max: 50 },
-            { name: 'Vitamin B12', value: 450, unit: 'pg/mL', min: 200, max: 900 },
-            { name: 'Folat', value: 12, unit: 'ng/mL', min: 3, max: 17 },
-            { name: 'Ferritin', value: 120, unit: 'ng/mL', min: 30, max: 400 },
-            { name: 'Demir', value: 90, unit: 'µg/dL', min: 60, max: 170 },
-            { name: 'TSH', value: 2.1, unit: 'mIU/L', min: 0.4, max: 4.0 },
-            { name: 'Serbest T3', value: 3.2, unit: 'pg/mL', min: 2.3, max: 4.2 },
-            { name: 'Serbest T4', value: 1.2, unit: 'ng/dL', min: 0.8, max: 1.8 },
-            { name: 'Kortizol (Sabah)', value: 15, unit: 'µg/dL', min: 6, max: 23 },
-            { name: 'DHEA-S', value: 250, unit: 'µg/dL', min: 80, max: 560 },
-            { name: 'Testosteron', value: 600, unit: 'ng/dL', min: 300, max: 1000 },
-            { name: 'Östrojen', value: 30, unit: 'pg/mL', min: 15, max: 350 },
-            { name: 'Progesteron', value: 0.5, unit: 'ng/mL', min: 0.1, max: 25 },
-            { name: 'CRP (hs-CRP)', value: 1.5, unit: 'mg/L', min: 0, max: 3 },
-            { name: 'Homosistein', value: 9, unit: 'µmol/L', min: 5, max: 15 },
-            { name: 'İnsülin (Açlık)', value: 8, unit: 'µIU/mL', min: 2, max: 19 },
-            { name: 'HOMA-IR', value: 1.8, unit: '', min: 0, max: 2.5 },
-            { name: 'Ürik Asit', value: 5.5, unit: 'mg/dL', min: 3.5, max: 7.2 },
-            { name: 'Kreatinin', value: 0.9, unit: 'mg/dL', min: 0.7, max: 1.3 },
-            { name: 'BUN', value: 15, unit: 'mg/dL', min: 7, max: 20 },
-            { name: 'AST (SGOT)', value: 25, unit: 'U/L', min: 10, max: 40 },
-            { name: 'ALT (SGPT)', value: 30, unit: 'U/L', min: 7, max: 56 },
-            { name: 'GGT', value: 25, unit: 'U/L', min: 9, max: 48 },
-            { name: 'Alkalen Fosfataz', value: 70, unit: 'U/L', min: 44, max: 147 },
-            { name: 'Total Bilirubin', value: 0.8, unit: 'mg/dL', min: 0.1, max: 1.2 },
-            { name: 'Albümin', value: 4.5, unit: 'g/dL', min: 3.5, max: 5.5 },
-            { name: 'Total Protein', value: 7.0, unit: 'g/dL', min: 6.0, max: 8.3 },
-            { name: 'Kalsiyum', value: 9.5, unit: 'mg/dL', min: 8.5, max: 10.5 },
-            { name: 'Magnezyum', value: 2.0, unit: 'mg/dL', min: 1.7, max: 2.2 },
-            { name: 'Potasyum', value: 4.2, unit: 'mEq/L', min: 3.5, max: 5.0 },
-            { name: 'Sodyum', value: 140, unit: 'mEq/L', min: 135, max: 145 },
-            { name: 'Klorür', value: 102, unit: 'mEq/L', min: 96, max: 106 },
-            { name: 'Fosfor', value: 3.5, unit: 'mg/dL', min: 2.5, max: 4.5 },
-            { name: 'Çinko', value: 90, unit: 'µg/dL', min: 60, max: 120 },
-            { name: 'Selenyum', value: 120, unit: 'µg/L', min: 70, max: 150 },
-            { name: 'Bakır', value: 100, unit: 'µg/dL', min: 70, max: 140 },
-            { name: 'Manganez', value: 1.0, unit: 'ng/mL', min: 0.5, max: 2.0 },
-            { name: 'Krom', value: 0.3, unit: 'ng/mL', min: 0.1, max: 0.5 },
-            { name: 'İyot', value: 100, unit: 'µg/L', min: 40, max: 150 },
-            { name: 'Koenzim Q10', value: 0.8, unit: 'µg/mL', min: 0.5, max: 1.5 },
-            { name: 'Glutatyon', value: 5.0, unit: 'µM', min: 3.0, max: 7.0 },
-            { name: 'Süperoksit Dismutaz', value: 1.5, unit: 'U/mL', min: 1.0, max: 2.0 },
-            { name: 'Katalaz', value: 50, unit: 'U/mL', min: 30, max: 70 },
-            { name: 'Glutatyon Peroksidaz', value: 45, unit: 'U/g Hb', min: 30, max: 60 },
-            { name: 'Malondialdehit', value: 2.0, unit: 'µM', min: 0, max: 4.0 },
-            { name: '8-OHdG', value: 5.0, unit: 'ng/mL', min: 0, max: 10 },
-            { name: 'Telomer Uzunluğu', value: 7.5, unit: 'kb', min: 5, max: 10 },
-            { name: 'DNA Metilasyon Yaşı', value: 28, unit: 'yıl', min: 20, max: 40 },
-            { name: 'İnflamasyon Skoru', value: 2, unit: '', min: 0, max: 5 },
-            { name: 'Oksidatif Stres', value: 3, unit: '', min: 0, max: 5 },
-            { name: 'Mitokondriyal Fonksiyon', value: 80, unit: '%', min: 60, max: 100 },
-            { name: 'İnsülin Duyarlılığı', value: 85, unit: '%', min: 60, max: 100 },
-            { name: 'Kardiyovasküler Risk', value: 2, unit: '', min: 0, max: 5 },
-            { name: 'Nörolojik Sağlık', value: 85, unit: '%', min: 60, max: 100 }
-        ];
+<script>
+const state={currentPage:'dashboard',twoFactorCode:'',isAdmin:false,products:[]};
 
-        // ============ 10 PORTFOLIO ASSETS ============
-        const portfolioAssets = [
-            { name: 'BIST 100 ETF', type: 'ETF', value: 250000, allocation: 20, return: 18.5 },
-            { name: 'Altın', type: 'Emtia', value: 200000, allocation: 16, return: 12.3 },
-            { name: 'ABD Hisse Senedi', type: 'Hisse', value: 187500, allocation: 15, return: 15.2 },
-            { name: 'Devlet Tahvili', type: 'Tahvil', value: 150000, allocation: 12, return: 8.5 },
-            { name: 'Gayrimenkul', type: 'Gayrimenkul', value: 125000, allocation: 10, return: 10.1 },
-            { name: 'Kripto Para', type: 'Kripto', value: 100000, allocation: 8, return: 25.4 },
-            { name: 'Yabancı ETF', type: 'ETF', value: 87500, allocation: 7, return: 14.8 },
-            { name: 'Gümüş', type: 'Emtia', value: 75000, allocation: 6, return: 9.7 },
-            { name: 'Kurumsal Tahvil', type: 'Tahvil', value: 50000, allocation: 4, return: 9.2 },
-            { name: 'Nakit', type: 'Nakit', value: 25000, allocation: 2, return: 2.0 }
-        ];
+const biomarkers=[{name:'Kan Şekeri',value:92,unit:'mg/dL',min:70,max:100},{name:'HbA1c',value:5.4,unit:'%',min:4,max:5.6},{name:'Total Kolesterol',value:185,unit:'mg/dL',min:125,max:200},{name:'HDL',value:55,unit:'mg/dL',min:40,max:60},{name:'LDL',value:130,unit:'mg/dL',min:0,max:100},{name:'Trigliserit',value:120,unit:'mg/dL',min:0,max:150},{name:'Vit D',value:25,unit:'ng/mL',min:30,max:50},{name:'B12',value:450,unit:'pg/mL',min:200,max:900},{name:'Folat',value:12,unit:'ng/mL',min:3,max:17},{name:'Ferritin',value:120,unit:'ng/mL',min:30,max:400},{name:'Demir',value:90,unit:'µg/dL',min:60,max:170},{name:'TSH',value:2.1,unit:'mIU/L',min:0.4,max:4},{name:'T3',value:3.2,unit:'pg/mL',min:2.3,max:4.2},{name:'T4',value:1.2,unit:'ng/dL',min:0.8,max:1.8},{name:'Kortizol',value:15,unit:'µg/dL',min:6,max:23},{name:'DHEA-S',value:250,unit:'µg/dL',min:80,max:560},{name:'Testosteron',value:600,unit:'ng/dL',min:300,max:1000},{name:'Östrojen',value:30,unit:'pg/mL',min:15,max:350},{name:'Progesteron',value:0.5,unit:'ng/mL',min:0.1,max:25},{name:'CRP',value:1.5,unit:'mg/L',min:0,max:3},{name:'Homosistein',value:9,unit:'µmol/L',min:5,max:15},{name:'İnsülin',value:8,unit:'µIU/mL',min:2,max:19},{name:'HOMA-IR',value:1.8,unit:'',min:0,max:2.5},{name:'Ürik Asit',value:5.5,unit:'mg/dL',min:3.5,max:7.2},{name:'Kreatinin',value:0.9,unit:'mg/dL',min:0.7,max:1.3},{name:'BUN',value:15,unit:'mg/dL',min:7,max:20},{name:'AST',value:25,unit:'U/L',min:10,max:40},{name:'ALT',value:30,unit:'U/L',min:7,max:56},{name:'GGT',value:25,unit:'U/L',min:9,max:48},{name:'ALP',value:70,unit:'U/L',min:44,max:147},{name:'Bilirubin',value:0.8,unit:'mg/dL',min:0.1,max:1.2},{name:'Albümin',value:4.5,unit:'g/dL',min:3.5,max:5.5},{name:'Protein',value:7,unit:'g/dL',min:6,max:8.3},{name:'Kalsiyum',value:9.5,unit:'mg/dL',min:8.5,max:10.5},{name:'Magnezyum',value:2,unit:'mg/dL',min:1.7,max:2.2},{name:'Potasyum',value:4.2,unit:'mEq/L',min:3.5,max:5},{name:'Sodyum',value:140,unit:'mEq/L',min:135,max:145},{name:'Klorür',value:102,unit:'mEq/L',min:96,max:106},{name:'Fosfor',value:3.5,unit:'mg/dL',min:2.5,max:4.5},{name:'Çinko',value:90,unit:'µg/dL',min:60,max:120},{name:'Selenyum',value:120,unit:'µg/L',min:70,max:150},{name:'Bakır',value:100,unit:'µg/dL',min:70,max:140},{name:'Manganez',value:1,unit:'ng/mL',min:0.5,max:2},{name:'Krom',value:0.3,unit:'ng/mL',min:0.1,max:0.5},{name:'İyot',value:100,unit:'µg/L',min:40,max:150},{name:'CoQ10',value:0.8,unit:'µg/mL',min:0.5,max:1.5},{name:'Glutatyon',value:5,unit:'µM',min:3,max:7},{name:'SOD',value:1.5,unit:'U/mL',min:1,max:2},{name:'Katalaz',value:50,unit:'U/mL',min:30,max:70},{name:'GPx',value:45,unit:'U/gHb',min:30,max:60},{name:'MDA',value:2,unit:'µM',min:0,max:4},{name:'8-OHdG',value:5,unit:'ng/mL',min:0,max:10},{name:'Telomer',value:7.5,unit:'kb',min:5,max:10},{name:'DNA Metilasyon',value:28,unit:'yıl',min:20,max:40},{name:'İnflamasyon',value:2,unit:'',min:0,max:5},{name:'Oksidatif Stres',value:3,unit:'',min:0,max:5},{name:'Mitokondri',value:80,unit:'%',min:60,max:100},{name:'İnsülin Duyarlılığı',value:85,unit:'%',min:60,max:100},{name:'Kardiyo Risk',value:2,unit:'',min:0,max:5},{name:'Nörolojik',value:85,unit:'%',min:60,max:100}];
 
-        // ============ 8 BUDGET ITEMS ============
-        const budgetItems = {
-            income: [
-                { name: 'Maaş', amount: 85000, frequency: 'Aylık', trend: '+%8' },
-                { name: 'Serbest Çalışma', amount: 15000, frequency: 'Aylık', trend: '+%15' },
-                { name: 'Kira Geliri', amount: 8000, frequency: 'Aylık', trend: '+%5' },
-                { name: 'Temettü', amount: 3000, frequency: 'Aylık', trend: '+%12' }
-            ],
-            expense: [
-                { name: 'Konut', amount: 15000, frequency: 'Aylık', trend: '+%3' },
-                { name: 'Gıda', amount: 5000, frequency: 'Aylık', trend: '-%2' },
-                { name: 'Ulaşım', amount: 3000, frequency: 'Aylık', trend: '+%5' },
-                { name: 'Sağlık', amount: 2000, frequency: 'Aylık', trend: '+%10' }
-            ]
-        };
+const portfolioAssets=[{name:'BIST ETF',type:'ETF',value:250000,allocation:20,return:18.5},{name:'Altın',type:'Emtia',value:200000,allocation:16,return:12.3},{name:'ABD Hisse',type:'Hisse',value:187500,allocation:15,return:15.2},{name:'Tahvil',type:'Tahvil',value:150000,allocation:12,return:8.5},{name:'Gayrimenkul',type:'GM',value:125000,allocation:10,return:10.1},{name:'Kripto',type:'Kripto',value:100000,allocation:8,return:25.4},{name:'Yabancı ETF',type:'ETF',value:87500,allocation:7,return:14.8},{name:'Gümüş',type:'Emtia',value:75000,allocation:6,return:9.7},{name:'Kurumsal Tahvil',type:'Tahvil',value:50000,allocation:4,return:9.2},{name:'Nakit',type:'Nakit',value:25000,allocation:2,return:2}];
 
-        // ============ RENDER FUNCTIONS ============
-        function renderBiomarkers() {
-            const tbody = document.getElementById('biomarkersTable');
-            if (!tbody) return;
-            tbody.innerHTML = '';
-            
-            biomarkers.forEach((bio, index) => {
-                const status = bio.value >= bio.min && bio.value <= bio.max ? 'Normal' : 'Anormal';
-                const statusClass = status === 'Normal' ? 'status-active' : 'status-pending';
-                
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${bio.name}</td>
-                    <td>${bio.value} ${bio.unit}</td>
-                    <td>${bio.min}-${bio.max} ${bio.unit}</td>
-                    <td><span class="status-badge ${statusClass}">${status}</span></td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
+const experts=[{name:'Ahmet Kaya',cat:'Finans',rating:4.8,price:1500},{name:'Selin Demir',cat:'Beslenme',rating:4.6,price:1200},{name:'Murat Yıldız',cat:'İşletme',rating:4.9,price:2000},{name:'Ayşe Şahin',cat:'Psikoloji',rating:4.7,price:1800},{name:'Mehmet Öztürk',cat:'Gayrimenkul',rating:4.5,price:1600},{name:'Zeynep Arslan',cat:'Fitness',rating:4.8,price:1000},{name:'Ali Yılmaz',cat:'Muhasebe',rating:4.6,price:1400},{name:'Fatma Koç',cat:'Hukuk',rating:4.9,price:2500},{name:'Emre Aydın',cat:'Teknoloji',rating:4.7,price:1700},{name:'Elif Doğan',cat:'Eğitim',rating:4.5,price:1300},{name:'Can Özkan',cat:'Pazarlama',rating:4.8,price:1500},{name:'Deniz Yalçın',cat:'Kariyer',rating:4.6,price:1600}];
 
-        function renderPortfolio() {
-            const container = document.getElementById('portfolioAssets');
-            if (!container) return;
-            container.innerHTML = '';
-            
-            portfolioAssets.forEach(asset => {
-                const item = document.createElement('div');
-                item.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--gray-200);';
-                item.innerHTML = `
-                    <div>
-                        <strong>${asset.name}</strong>
-                        <p style="font-size: 12px; color: var(--gray-500);">${asset.type}</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <strong>₺${asset.value.toLocaleString('tr-TR')}</strong>
-                        <p style="font-size: 12px; color: ${asset.return > 0 ? 'var(--success)' : 'var(--danger)'};">%${asset.return}</p>
-                    </div>
-                    <div style="width: 100px; text-align: center;">
-                        <span class="status-badge status-active">%${asset.allocation}</span>
-                    </div>
-                `;
-                container.appendChild(item);
-            });
-            
-            const ctx = document.getElementById('portfolioChart');
-            if (ctx) {
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: portfolioAssets.map(a => a.name),
-                        datasets: [{
-                            data: portfolioAssets.map(a => a.value),
-                            backgroundColor: ['#6366f1', '#f59e0b', '#10b981', '#ef4444', '#3b82f6', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316', '#64748b']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom' } }
-                    }
-                });
-            }
-        }
+const marketplaceProducts=[{name:'Zeytinyağı',price:180,emoji:'🫒'},{name:'Bal',price:250,emoji:'🍯'},{name:'Çay Seti',price:375,emoji:'🍵'},{name:'Sabun',price:75,emoji:'🧼'},{name:'Krem',price:150,emoji:'🧴'},{name:'FIRE Kitap',price:99,emoji:'📚'},{name:'Yatırım Rehberi',price:149,emoji:'📊'},{name:'Meditasyon',price:299,emoji:'🧘'},{name:'Yoga',price:449,emoji:'🧘‍♀️'},{name:'Finansal Analiz',price:999,emoji:'📈'},{name:'Portföy Danışmanlığı',price:1999,emoji:'💼'},{name:'Longevity Check-up',price:2999,emoji:'🏥'}];
 
-        function renderBudgetItems() {
-            const incomeContainer = document.getElementById('incomeItems');
-            const expenseContainer = document.getElementById('expenseItems');
-            
-            if (incomeContainer) {
-                incomeContainer.innerHTML = '';
-                budgetItems.income.forEach(item => {
-                    incomeContainer.innerHTML += `
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--gray-200);">
-                            <div>
-                                <strong>${item.name}</strong>
-                                <p style="font-size: 12px; color: var(--gray-500);">${item.frequency} | Trend: ${item.trend}</p>
-                            </div>
-                            <strong style="color: var(--success); font-size: 18px;">₺${item.amount.toLocaleString('tr-TR')}</strong>
-                        </div>
-                    `;
-                });
-            }
-            
-            if (expenseContainer) {
-                expenseContainer.innerHTML = '';
-                budgetItems.expense.forEach(item => {
-                    expenseContainer.innerHTML += `
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--gray-200);">
-                            <div>
-                                <strong>${item.name}</strong>
-                                <p style="font-size: 12px; color: var(--gray-500);">${item.frequency} | Trend: ${item.trend}</p>
-                            </div>
-                            <strong style="color: var(--danger); font-size: 18px;">₺${item.amount.toLocaleString('tr-TR')}</strong>
-                        </div>
-                    `;
-                });
-            }
-            
-            // Budget Chart
-            const budgetCtx = document.getElementById('budgetChart');
-            if (budgetCtx) {
-                new Chart(budgetCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Maaş', 'Serbest', 'Kira', 'Temettü', 'Konut', 'Gıda', 'Ulaşım', 'Sağlık'],
-                        datasets: [{
-                            label: 'Tutar (₺)',
-                            data: [85000, 15000, 8000, 3000, 15000, 5000, 3000, 2000],
-                            backgroundColor: ['#10b981', '#10b981', '#10b981', '#10b981', '#ef4444', '#ef4444', '#ef4444', '#ef4444']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } }
-                    }
-                });
-            }
-        }
+const consultingPackages=[{name:'Temel',price:5000,duration:'1 Ay',features:['Finansal analiz','Bütçe','1 görüşme']},{name:'Pro',price:12000,duration:'3 Ay',features:['Kapsamlı analiz','Yatırım','4 görüşme']},{name:'Business',price:25000,duration:'6 Ay',features:['İşletme analizi','Büyüme','12 görüşme']},{name:'Premium',price:50000,duration:'12 Ay',features:['Tam kapsamlı','CFO','Sınırsız']}];
 
-        // ============ FIRE CALCULATOR ============
-        function calculateFIRE() {
-            const currentAge = parseInt(document.getElementById('fireAge').value);
-            const retirementAge = parseInt(document.getElementById('fireRetirementAge').value);
-            const annualIncome = parseFloat(document.getElementById('fireIncome').value);
-            const annualExpenses = parseFloat(document.getElementById('fireExpenses').value);
-            const currentNetWorth = parseFloat(document.getElementById('fireNetWorth').value);
-            const investmentReturn = parseFloat(document.getElementById('fireReturn').value) / 100;
-            const inflationRate = parseFloat(document.getElementById('fireInflation').value) / 100;
-            const lifeExpectancy = parseInt(document.getElementById('fireLifeExpectancy').value);
-            
-            const fireNumber = annualExpenses * 25;
-            const annualSavings = annualIncome - annualExpenses;
-            let yearsToFIRE = 0;
-            let portfolio = currentNetWorth;
-            
-            while (portfolio < fireNumber && yearsToFIRE < 100) {
-                portfolio = portfolio * (1 + investmentReturn) + annualSavings;
-                yearsToFIRE++;
-            }
-            
-            const fireYear = new Date().getFullYear() + yearsToFIRE;
-            
-            document.getElementById('fireNumberResult').textContent = '₺' + fireNumber.toLocaleString('tr-TR');
-            document.getElementById('fireYearResult').textContent = fireYear;
-            document.getElementById('fireDurationResult').textContent = yearsToFIRE + ' yıl';
-            document.getElementById('fireSavingsRate').textContent = Math.round((annualSavings / annualIncome) * 100) + '%';
-            
-            // Generate projection table
-            const tbody = document.getElementById('fireProjectionTable');
-            tbody.innerHTML = '';
-            let projPortfolio = currentNetWorth;
-            
-            for (let year = 0; year <= yearsToFIRE + 5; year++) {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${new Date().getFullYear() + year}</td>
-                    <td>${currentAge + year}</td>
-                    <td>₺${Math.round(projPortfolio).toLocaleString('tr-TR')}</td>
-                    <td>₺${(annualIncome * Math.pow(1 + inflationRate, year)).toLocaleString('tr-TR')}</td>
-                    <td>₺${(annualExpenses * Math.pow(1 + inflationRate, year)).toLocaleString('tr-TR')}</td>
-                    <td>₺${(annualSavings * Math.pow(1 + inflationRate, year)).toLocaleString('tr-TR')}</td>
-                `;
-                tbody.appendChild(row);
-                projPortfolio = projPortfolio * (1 + investmentReturn) + annualSavings;
-            }
-            
-            // Update chart
-            const labels = [];
-            const data = [];
-            let chartPortfolio = currentNetWorth;
-            
-            for (let year = 0; year <= yearsToFIRE + 5; year++) {
-                labels.push(new Date().getFullYear() + year);
-                data.push(chartPortfolio);
-                chartPortfolio = chartPortfolio * (1 + investmentReturn) + annualSavings;
-            }
-            
-            const ctx = document.getElementById('fireChart');
-            if (ctx) {
-                if (window.fireChartInstance) window.fireChartInstance.destroy();
-                window.fireChartInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [
-                            {
-                                label: 'Portföy Değeri',
-                                data: data,
-                                borderColor: '#10b981',
-                                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                                tension: 0.4,
-                                fill: true
-                            },
-                            {
-                                label: 'FIRE Hedefi',
-                                data: Array(labels.length).fill(fireNumber),
-                                borderColor: '#ef4444',
-                                borderDash: [5, 5],
-                                pointRadius: 0
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom' } }
-                    }
-                });
-            }
-            
-            showToast(`FIRE hedefinize ${yearsToFIRE} yıl içinde (${fireYear}) ulaşabilirsiniz!`, 'success');
-        }
+const coachingServices=[{name:'Liderlik',price:7500,duration:'3 Ay',features:['Değerlendirme','Plan','6 seans']},{name:'Girişimcilik',price:10000,duration:'6 Ay',features:['İş planı','Pazar','Mentorluk']},{name:'CFO',price:15000,duration:'6 Ay',features:['Finansal eğitim','Bütçe','Yatırım']},{name:'Longevity',price:8000,duration:'3 Ay',features:['Sağlık','60 belirteç','Plan']}];
 
-        // ============ AI FUNCTIONS ============
-        function sendAIMessage() {
-            const input = document.getElementById('aiChatInput');
-            const message = input.value.trim();
-            if (!message) return;
-            
-            const chatMessages = document.getElementById('aiChatMessages');
-            chatMessages.innerHTML += `
-                <div style="display: flex; gap: 10px; margin-bottom: 15px; justify-content: flex-end;">
-                    <div style="background: var(--primary); padding: 10px 15px; border-radius: 10px; color: white;">${message}</div>
-                </div>
-            `;
-            input.value = '';
-            
-            setTimeout(() => {
-                chatMessages.innerHTML += `
-                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-robot" style="font-size: 12px;"></i>
-                        </div>
-                        <div style="background: white; padding: 10px 15px; border-radius: 10px;">Analiz ediyorum... Size öneriler sunacağım.</div>
-                    </div>
-                `;
-            }, 1000);
-        }
+const userPackages=[{name:'Free',price:0,features:['Temel finans']},{name:'Basic',price:99,features:['FIRE hesaplayıcı']},{name:'Pro',price:299,features:['AI CFO']},{name:'Business',price:999,features:['CRM+ERP']}];
 
-        function generateReport(type) {
-            const resultDiv = document.getElementById('reportResult');
-            const reports = {
-                financial: 'Finansal Rapor:\n\nNet Değer: ₺1.250.000\nAylık Gelir: ₺85.000\nAylık Gider: ₺45.000\nTasarruf Oranı: %47\n\nÖneriler:\n1. Acil durum fonunuzu güçlendirin\n2. Yatırım çeşitlendirmesi yapın\n3. Borçlarınızı azaltın',
-                fire: 'FIRE Raporu:\n\nFIRE Numarası: ₺13.500.000\nMevcut İlerleme: %9.3\nTahmini FIRE Yılı: 2046\nKalan Süre: 20 yıl\n\nStratejiler:\n1. Tasarruf oranını %55\'e çıkarın\n2. Ek gelir kaynakları oluşturun\n3. Yatırım getirisini optimize edin',
-                longevity: 'Longevity Raporu:\n\nLongevity Skoru: 84/100\nBiyolojik Yaş: 32\nEpigenetik Yaş: 28\nMetabolik Yaş: 30\n\nÖneriler:\n1. Uyku süresini 7-8 saate çıkarın\n2. Omega-3 takviyesi alın\n3. Haftada 3 kez egzersiz yapın',
-                business: 'İşletme Raporu:\n\nAylık Gelir: ₺450.000\nEBITDA: ₺150.000\nBrüt Marj: %62\nNet Marj: %33\n\nÖneriler:\n1. Stok devir hızını artırın\n2. Dijital pazarlamaya yatırım yapın\n3. Müşteri sadakat programı oluşturun'
-            };
-            
-            resultDiv.innerHTML = `<pre style="white-space: pre-wrap; font-family: inherit;">${reports[type]}</pre>`;
-            showToast('Rapor oluşturuldu', 'success');
-        }
+const modules=[{name:'Dashboard',enabled:true},{name:'Finans',enabled:true},{name:'FIRE',enabled:true},{name:'Longevity',enabled:true},{name:'Bütçe',enabled:true},{name:'Portföy',enabled:true},{name:'Hedefler',enabled:true},{name:'İşletme',enabled:true},{name:'CRM',enabled:true},{name:'Satış',enabled:true},{name:'Envanter',enabled:true},{name:'Projeler',enabled:true},{name:'Uzmanlar',enabled:true},{name:'Marketplace',enabled:true},{name:'Danışmanlık',enabled:true},{name:'Koçluk',enabled:true},{name:'Akademi',enabled:true},{name:'AI CFO',enabled:true},{name:'AI CEO',enabled:true},{name:'AI FIRE',enabled:true},{name:'AI Longevity',enabled:true}];
 
-        // ============ AUTH FUNCTIONS ============
-        function showApp() {
-            document.getElementById('loginScreen').classList.remove('active');
-            document.getElementById('twoFactorScreen').classList.remove('active');
-            document.getElementById('appContainer').classList.add('active');
-            renderBiomarkers();
-            renderPortfolio();
-            renderBudgetItems();
-            calculateFIRE();
-        }
+function showToast(msg,type='info'){const c=document.getElementById('toastContainer');const t=document.createElement('div');t.className='toast '+type;const icons={success:'fa-check-circle',error:'fa-exclamation-circle',warning:'fa-exclamation-triangle',info:'fa-info-circle'};t.innerHTML='<i class="fas '+icons[type]+'"></i><span>'+msg+'</span>';c.appendChild(t);setTimeout(()=>{t.style.animation='slideIn 0.3s reverse';setTimeout(()=>c.removeChild(t),300)},3000);}
 
-        function logout() {
-            state.isAuthenticated = false;
-            document.getElementById('appContainer').classList.remove('active');
-            document.getElementById('loginScreen').classList.add('active');
-            showToast('Çıkış yapıldı', 'info');
-        }
+function showLogin(){document.getElementById('loginScreen').classList.add('active');document.getElementById('registerScreen').classList.remove('active');}
+function showRegister(){document.getElementById('registerScreen').classList.add('active');document.getElementById('loginScreen').classList.remove('active');}
+function loginWithGoogle(){showToast('Google giriş...','info');setTimeout(()=>{showApp();},1500);}
+function logout(){document.getElementById('appContainer').classList.remove('active');document.getElementById('loginScreen').classList.add('active');showToast('Çıkış yapıldı','info');}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
 
-        function loginWithGoogle() {
-            showToast('Google ile giriş yapılıyor...', 'info');
-            setTimeout(() => {
-                showApp();
-                showToast('Başarıyla giriş yapıldı!', 'success');
-            }, 1500);
-        }
+function send2FACode(){const code=Math.floor(100000+Math.random()*900000).toString();state.twoFactorCode=code;document.getElementById('2faCodeDisplay').textContent=code;}
+function verify2FA(){let code='';for(let i=1;i<=6;i++){code+=document.getElementById('c'+i).value;}if(code===state.twoFactorCode){showApp();showToast('2FA başarılı!','success');}else{showToast('Hatalı kod!','error');}}
 
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
-        }
+function showApp(){document.getElementById('loginScreen').classList.remove('active');document.getElementById('registerScreen').classList.remove('active');document.getElementById('twoFactorScreen').classList.remove('active');document.getElementById('appContainer').classList.add('active');renderAll();}
 
-        function showPage(page) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            const selectedPage = document.getElementById(page + '-page');
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-            }
-            
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            event.target.closest('.nav-item').classList.add('active');
-            
-            const titles = {
-                'dashboard': 'Dashboard',
-                'finance': 'Finans',
-                'fire': 'FIRE',
-                'longevity': 'Longevity',
-                'budget': 'Bütçe',
-                'portfolio': 'Portföy',
-                'business': 'İşletme',
-                'crm': 'CRM',
-                'experts': 'Uzmanlar',
-                'marketplace': 'Marketplace',
-                'consulting': 'Danışmanlık',
-                'coaching': 'Koçluk',
-                'ai-cfo': 'AI CFO',
-                'ai-fire': 'AI FIRE',
-                'ai-longevity': 'AI Longevity',
-                'ai-reports': 'AI Raporlar',
-                'settings': 'Ayarlar',
-                'admin': 'Yönetim'
-            };
-            document.getElementById('pageTitle').textContent = titles[page] || page;
-        }
+function showPage(page){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const el=document.getElementById(page+'-page');if(el)el.classList.add('active');document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));event.target.closest('.nav-item').classList.add('active');const titles={dashboard:'Dashboard',finance:'Finans',fire:'FIRE',longevity:'Longevity',budget:'Bütçe',portfolio:'Portföy',goals:'Hedefler',business:'İşletme',crm:'CRM',sales:'Satış',inventory:'Envanter',projects:'Projeler',experts:'Uzmanlar',marketplace:'Marketplace',consulting:'Danışmanlık',coaching:'Koçluk',academy:'Akademi',certificates:'Sertifikalar','ai-cfo':'AI CFO','ai-ceo':'AI CEO','ai-fire':'AI FIRE','ai-longevity':'AI Longevity','ai-reports':'AI Raporlar',settings:'Ayarlar',admin:'Yönetim'};document.getElementById('pageTitle').textContent=titles[page]||page;}
 
-        function changeLanguage(lang) {
-            state.language = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            showToast(lang === 'tr' ? 'Dil: Türkçe' : 'Language: English', 'success');
-        }
+function changeLanguage(lang){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');showToast(lang==='tr'?'Türkçe':'English','success');}
+function toggleMode(){const icon=document.getElementById('modeIcon');icon.className=state.darkMode?'fas fa-moon':'fas fa-sun';state.darkMode=!state.darkMode;showToast(state.darkMode?'Karanlık':'Aydınlık','info');}
+function showUserMenu(){showToast('Kullanıcı menüsü','info');}
+function openModal(id){document.getElementById(id).classList.add('active');}
+function closeModal(id){document.getElementById(id).classList.remove('active');}
 
-        function toggleMode() {
-            state.darkMode = !state.darkMode;
-            const icon = document.getElementById('modeIcon');
-            icon.className = state.darkMode ? 'fas fa-sun' : 'fas fa-moon';
-            showToast(state.darkMode ? 'Karanlık mod' : 'Aydınlık mod', 'info');
-        }
+function calcFIRE(){const age=+document.getElementById('fireAge').value;const inc=+document.getElementById('fireInc').value;const exp=+document.getElementById('fireExp').value;const nw=+document.getElementById('fireNW').value;const ret=+document.getElementById('fireRet').value/100;const fireNum=exp*25;const savings=inc-exp;let years=0,portfolio=nw;while(portfolio<fireNum&&years<100){portfolio=portfolio*(1+ret)+savings;years++;}document.getElementById('fireNum').textContent='₺'+(fireNum/1000000).toFixed(1)+'M';document.getElementById('fireYr').textContent=new Date().getFullYear()+years;document.getElementById('fireDur').textContent=years+' yıl';document.getElementById('fireRate').textContent=Math.round(savings/inc*100)+'%';const labels=[],data=[];let p=nw;for(let y=0;y<=years+5;y++){labels.push(new Date().getFullYear()+y);data.push(p);p=p*(1+ret)+savings;}const ctx=document.getElementById('fireChart');if(ctx){if(window.fc)window.fc.destroy();window.fc=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:'Portföy',data,borderColor:'#10b981',backgroundColor:'rgba(16,185,129,0.1)',fill:true,tension:0.4},{label:'FIRE Hedefi',data:Array(labels.length).fill(fireNum),borderColor:'#ef4444',borderDash:[5,5],pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});}}
 
-        function showToast(message, type = 'info') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            
-            const icons = {
-                'success': 'fa-check-circle',
-                'error': 'fa-exclamation-circle',
-                'warning': 'fa-exclamation-triangle',
-                'info': 'fa-info-circle'
-            };
-            
-            toast.innerHTML = `<i class="fas ${icons[type]}"></i><span>${message}</span>`;
-            container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.style.animation = 'slideIn 0.3s reverse';
-                setTimeout(() => container.removeChild(toast), 300);
-            }, 3000);
-        }
+function genReport(type){const reports={financial:'Finansal Rapor\n\nNet Değer: ₺1.25M\nGelir: ₺85K/ay\nTasarruf: %47\n\nÖneriler:\n1. Acil fon güçlendir\n2. Yatırım çeşitlendir',fire:'FIRE Raporu\n\nFIRE No: ₺13.5M\nİlerleme: %9.3\nYıl: 2046\n\nStrateji:\n1. Tasarruf %55\n2. Ek gelir',longevity:'Longevity Raporu\n\nSkor: 84/100\nBiyolojik Yaş: 32\n\nÖneriler:\n1. Uyku 7-8 saat\n2. Omega-3\n3. Egzersiz',business:'İşletme Raporu\n\nGelir: ₺450K\nEBITDA: ₺150K\nMarj: %62\n\nÖneriler:\n1. Stok devir\n2. Dijital pazarlama'};document.getElementById('reportResult').innerHTML='<pre style="white-space:pre-wrap;font-family:inherit">'+reports[type]+'</pre>';showToast('Rapor oluşturuldu','success');}
 
-        function showUserMenu() {
-            showToast('Kullanıcı menüsü', 'info');
-        }
+function sendAI(){const input=document.getElementById('aiInput');const msg=input.value.trim();if(!msg)return;const chat=document.getElementById('aiChat');chat.innerHTML+='<div style="text-align:right;margin-bottom:10px"><span style="background:var(--primary);color:white;padding:8px 15px;border-radius:10px">'+msg+'</span></div>';input.value='';setTimeout(()=>{chat.innerHTML+='<div style="text-align:left;margin-bottom:10px"><span style="background:var(--gray-50);padding:8px 15px;border-radius:10px">Analiz ediyorum... Size öneriler sunacağım.</span></div>';},1000);}
 
-        function send2FACode() {
-            const code = Math.floor(100000 + Math.random() * 900000).toString();
-            state.twoFactorCode = code;
-            console.log('2FA Code:', code);
-            showToast('2FA kodu gönderildi: ' + code, 'info');
-        }
+function buyViaWhatsApp(name,price,type){const msg='Merhaba, '+type+' satın almak istiyorum.\n\nÜrün: '+name+'\nFiyat: ₺'+price+'\n\nÖdeme bilgilerini paylaşır mısınız?';window.open('https://wa.me/905409666602?text='+encodeURIComponent(msg),'_blank');showToast('WhatsApp yönlendiriliyor...','success');}
 
-        function verify2FA() {
-            const inputs = ['code1', 'code2', 'code3', 'code4', 'code5', 'code6'];
-            let enteredCode = '';
-            
-            inputs.forEach(id => {
-                enteredCode += document.getElementById(id).value;
-            });
-            
-            if (enteredCode === state.twoFactorCode) {
-                showApp();
-                showToast('2FA doğrulaması başarılı!', 'success');
-            } else {
-                showToast('Hatalı kod! Lütfen tekrar deneyin.', 'error');
-            }
-        }
+function adminLogin(e){e.preventDefault();const pw=document.getElementById('adminPassword').value;if(pw==='anadolu2026'){state.isAdmin=true;document.getElementById('adminLogin').style.display='none';document.getElementById('adminContent').style.display='block';showToast('Admin girişi başarılı!','success');}else{showToast('Hatalı şifre!','error');}}
 
-        function resend2FA() {
-            send2FACode();
-            showToast('Yeni kod gönderildi', 'info');
-        }
+function toggleModule(i,enabled){modules[i].enabled=enabled;showToast(modules[i].name+(enabled?' açıldı':' kapatıldı'),'success');}
+function deleteModule(i){modules.splice(i,1);renderModules();showToast('Silindi','success');}
+function addProduct(e){e.preventDefault();const name=document.getElementById('prodName').value;const price=document.getElementById('prodPrice').value;state.products.push({name,price:+price});renderProducts();closeModal('addProductModal');showToast('Ürün eklendi','success');}
+function deleteProduct(i){state.products.splice(i,1);renderProducts();showToast('Silindi','success');}
 
-        // ============ EVENT LISTENERS ============
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            if (email && password) {
-                document.getElementById('loginScreen').classList.remove('active');
-                document.getElementById('twoFactorScreen').classList.add('active');
-                send2FACode();
-            }
-        });
+function renderAll(){renderBiomarkers();renderPortfolio();renderBudget();renderExperts();renderMarketplace();renderConsulting();renderCoaching();renderPackages();renderModules();renderProducts();}
 
-        document.querySelectorAll('.2fa-input').forEach((input, index) => {
-            input.addEventListener('input', function() {
-                if (this.value.length === 1 && index < 5) {
-                    document.querySelectorAll('.2fa-input')[index + 1].focus();
-                }
-            });
-        });
+function renderBiomarkers(){const t=document.getElementById('bioTable');if(!t)return;t.innerHTML='';biomarkers.forEach((b,i)=>{const ok=b.value>=b.min&&b.value<=b.max;t.innerHTML+='<tr><td>'+(i+1)+'</td><td>'+b.name+'</td><td>'+b.value+' '+b.unit+'</td><td>'+b.min+'-'+b.max+'</td><td><span class="status-badge '+(ok?'status-active':'status-pending')+'">'+(ok?'Normal':'Anormal')+'</span></td></tr>';});}
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                document.querySelectorAll('.modal.active').forEach(modal => modal.classList.remove('active'));
-            }
-        });
+function renderPortfolio(){const c=document.getElementById('portfolioList');if(!c)return;c.innerHTML='';portfolioAssets.forEach(a=>{c.innerHTML+='<div style="display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid var(--gray-200)"><div><strong>'+a.name+'</strong><p style="font-size:12px;color:var(--gray-500)">'+a.type+'</p></div><div style="text-align:right"><strong>₺'+a.value.toLocaleString('tr-TR')+'</strong><p style="font-size:12px;color:var(--success)">%'+a.return+'</p></div></div>';});const ctx=document.getElementById('portfolioChart');if(ctx)new Chart(ctx,{type:'doughnut',data:{labels:portfolioAssets.map(a=>a.name),datasets:[{data:portfolioAssets.map(a=>a.value),backgroundColor:['#6366f1','#f59e0b','#10b981','#ef4444','#3b82f6','#8b5cf6','#ec4899','#14b8a6','#f97316','#64748b']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});}
 
-        console.log('ANADOLU SUPER OS initialized');
-        console.log('Version: 5.0.0 - Detailed FIRE, Longevity, Budget, Portfolio, AI');
-        console.log('Developer: CFO Müh. Orhan Boyraz');
-        console.log('Contact: orhanboyraz0216@gmail.com');
-        console.log('Phone: 05409666602');
-        console.log('Location: Nilüfer-Bursa/Türkiye');
-    </script>
+function renderBudget(){const inc=document.getElementById('budgetIncome');const exp=document.getElementById('budgetExpense');if(inc){inc.innerHTML='<div style="padding:12px;border-bottom:1px solid var(--gray-200)"><strong>Maaş</strong> <span style="float:right;color:var(--success)">₺85.000</span></div><div style="padding:12px;border-bottom:1px solid var(--gray-200)"><strong>Serbest</strong> <span style="float:right;color:var(--success)">₺15.000</span></div><div style="padding:12px;border-bottom:1px solid var(--gray-200)"><strong>Kira</strong> <span style="float:right;color:var(--success)">₺8.000</span></div><div style="padding:12px"><strong>Temettü</strong> <span style="float:right;color:var(--success)">₺3.000</span></div>';}if(exp){exp.innerHTML='<div style="padding:12px;border-bottom:1px solid var(--gray-200)"><strong>Konut</strong> <span style="float:right;color:var(--danger)">₺15.000</span></div><div style="padding:12px;border-bottom:1px solid var(--gray-200)"><strong>Gıda</strong> <span style="float:right;color:var(--danger)">₺5.000</span></div><div style="padding:12px;border-bottom:1px solid var(--gray-200)"><strong>Ulaşım</strong> <span style="float:right;color:var(--danger)">₺3.000</span></div><div style="padding:12px"><strong>Sağlık</strong> <span style="float:right;color:var(--danger)">₺2.000</span></div>';}}
+
+function renderExperts(){const c=document.getElementById('expertsGrid');if(!c)return;c.innerHTML='';experts.forEach(e=>{c.innerHTML+='<div class="card" style="text-align:center"><div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--gold));margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px">'+e.name.split(' ').map(n=>n[0]).join('')+'</div><h4>'+e.name+'</h4><p style="color:var(--gray-500)">'+e.cat+'</p><p style="color:var(--gold)">★ '+e.rating+'</p><p style="font-weight:700;color:var(--primary)">₺'+e.price+'/saat</p><button class="btn btn-whatsapp" style="margin-top:10px" onclick="buyViaWhatsApp(\''+e.name+'\','+e.price+',\'Uzman\')"><i class="fab fa-whatsapp"></i> Randevu</button></div>';});}
+
+function renderMarketplace(){const c=document.getElementById('marketplaceGrid');if(!c)return;c.innerHTML='';marketplaceProducts.forEach(p=>{c.innerHTML+='<div class="card" style="text-align:center"><div style="font-size:48px">'+p.emoji+'</div><h4>'+p.name+'</h4><p style="font-weight:700;color:var(--primary)">₺'+p.price+'</p><button class="btn btn-whatsapp" style="margin-top:10px" onclick="buyViaWhatsApp(\''+p.name+'\','+p.price+',\'Ürün\')"><i class="fab fa-whatsapp"></i> Satın Al</button></div>';});}
+
+function renderConsulting(){const c=document.getElementById('consultingGrid');if(!c)return;c.innerHTML='';consultingPackages.forEach(p=>{c.innerHTML+='<div class="card"><h3 style="text-align:center">'+p.name+'</h3><p style="text-align:center;color:var(--gray-500)">'+p.duration+'</p><p style="text-align:center;font-size:28px;font-weight:800;color:var(--primary)">₺'+p.price.toLocaleString('tr-TR')+'</p><ul style="list-style:none;padding:0">'+p.features.map(f=>'<li style="padding:8px 0"><i class="fas fa-check" style="color:var(--success);margin-right:8px"></i>'+f+'</li>').join('')+'</ul><button class="btn btn-whatsapp" onclick="buyViaWhatsApp(\''+p.name+'\','+p.price+',\'Danışmanlık\')"><i class="fab fa-whatsapp"></i> Satın Al</button></div>';});}
+
+function renderCoaching(){const c=document.getElementById('coachingGrid');if(!c)return;c.innerHTML='';coachingServices.forEach(s=>{c.innerHTML+='<div class="card"><h3 style="text-align:center">'+s.name+' Koçluğu</h3><p style="text-align:center;color:var(--gray-500)">'+s.duration+'</p><p style="text-align:center;font-size:28px;font-weight:800;color:var(--primary)">₺'+s.price.toLocaleString('tr-TR')+'</p><button class="btn btn-whatsapp" onclick="buyViaWhatsApp(\''+s.name+'\','+s.price+',\'Koçluk\')"><i class="fab fa-whatsapp"></i> Başvur</button></div>';});}
+
+function renderPackages(){const c=document.getElementById('packageList');if(!c)return;c.innerHTML='';userPackages.forEach(p=>{c.innerHTML+='<div style="background:var(--gray-50);padding:15px;border-radius:10px;margin-bottom:10px"><strong>'+p.name+'</strong> - ₺'+p.price+'/ay<p style="font-size:12px;color:var(--gray-500)">'+p.features.join(', ')+'</p></div>';});}
+
+function renderModules(){const c=document.getElementById('moduleList');if(!c)return;c.innerHTML='';modules.forEach((m,i)=>{c.innerHTML+='<div style="display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid var(--gray-200)"><span>'+m.name+'</span><div style="display:flex;gap:8px"><input type="checkbox" '+(m.enabled?'checked':'')+' onchange="toggleModule('+i+',this.checked)"><button class="btn btn-danger btn-sm" onclick="deleteModule('+i+')"><i class="fas fa-trash"></i></button></div></div>';});}
+
+function renderProducts(){const c=document.getElementById('adminProducts');if(!c)return;c.innerHTML='';state.products.forEach((p,i)=>{c.innerHTML+='<div style="display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid var(--gray-200)"><span>'+p.name+' - ₺'+p.price+'</span><button class="btn btn-danger btn-sm" onclick="deleteProduct('+i+')"><i class="fas fa-trash"></i></button></div>';});}
+
+document.getElementById('loginForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('loginScreen').classList.remove('active');document.getElementById('twoFactorScreen').classList.add('active');send2FACode();});
+document.getElementById('registerForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('registerScreen').classList.remove('active');document.getElementById('twoFactorScreen').classList.add('active');send2FACode();});
+document.querySelectorAll('.2fa-input').forEach((input,index)=>{input.addEventListener('input',function(){if(this.value.length===1&&index<5)document.querySelectorAll('.2fa-input')[index+1].focus();});});
+document.addEventListener('click',function(e){if(e.target.classList.contains('modal'))e.target.classList.remove('active');});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.modal.active').forEach(m=>m.classList.remove('active'));});
+
+console.log('ANADOLU SUPER OS v6.0 - ALL MODULES');
+console.log('Developer: CFO Müh. Orhan Boyraz');
+console.log('Contact: orhanboyraz0216@gmail.com | 05409666602 | Nilüfer-Bursa/Türkiye');
+</script>
 </body>
 </html>
